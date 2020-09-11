@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C79D8A13250BECD200DE87FE /* Hello world in Resources */ = {isa = PBXBuildFile; fileRef = C79D8A12250BECD200DE87FE /* Hello world */; };
 		FFB08557250BA558008A43ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB08556250BA558008A43ED /* AppDelegate.swift */; };
 		FFB08559250BA558008A43ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB08558250BA558008A43ED /* SceneDelegate.swift */; };
 		FFB0855B250BA558008A43ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB0855A250BA558008A43ED /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C79D8A12250BECD200DE87FE /* Hello world */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Hello world"; sourceTree = "<group>"; };
 		FFB08553250BA558008A43ED /* Task List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB08556250BA558008A43ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFB08558250BA558008A43ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				FFB08558250BA558008A43ED /* SceneDelegate.swift */,
 				FFB0855A250BA558008A43ED /* ViewController.swift */,
 				FFB0855C250BA558008A43ED /* Main.storyboard */,
+				C79D8A12250BECD200DE87FE /* Hello world */,
 				FFB0855F250BA55B008A43ED /* Assets.xcassets */,
 				FFB08561250BA55B008A43ED /* LaunchScreen.storyboard */,
 				FFB08564250BA55B008A43ED /* Info.plist */,
@@ -128,6 +131,7 @@
 				FFB08563250BA55B008A43ED /* LaunchScreen.storyboard in Resources */,
 				FFB08560250BA55B008A43ED /* Assets.xcassets in Resources */,
 				FFB0855E250BA558008A43ED /* Main.storyboard in Resources */,
+				C79D8A13250BECD200DE87FE /* Hello world in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
