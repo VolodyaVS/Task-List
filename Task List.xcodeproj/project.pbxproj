@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		92AE9B38250C5530003F1095 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE9B37250C5530003F1095 /* Task.swift */; };
 		FF0F497C250CFEAD001C789F /* TaskView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0F497B250CFEAD001C789F /* TaskView.storyboard */; };
+		FF0F497E250D0286001C789F /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F497D250D0286001C789F /* LaunchScreenViewController.swift */; };
 		FFB08557250BA558008A43ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB08556250BA558008A43ED /* AppDelegate.swift */; };
 		FFB08559250BA558008A43ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB08558250BA558008A43ED /* SceneDelegate.swift */; };
 		FFB0855E250BA558008A43ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB0855C250BA558008A43ED /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		92AE9B37250C5530003F1095 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Task.swift; path = "Task List/Task.swift"; sourceTree = SOURCE_ROOT; };
 		FF0F497B250CFEAD001C789F /* TaskView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskView.storyboard; sourceTree = "<group>"; };
+		FF0F497D250D0286001C789F /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchScreenViewController.swift; path = "Task List/LaunchScreenViewController.swift"; sourceTree = SOURCE_ROOT; };
 		FFB08553250BA558008A43ED /* Task List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB08556250BA558008A43ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFB08558250BA558008A43ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +46,7 @@
 		FF4D6C20250C0BDE0020ADF2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FF0F497D250D0286001C789F /* LaunchScreenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			files = (
 				FFB08557250BA558008A43ED /* AppDelegate.swift in Sources */,
 				92AE9B38250C5530003F1095 /* Task.swift in Sources */,
+				FF0F497E250D0286001C789F /* LaunchScreenViewController.swift in Sources */,
 				FFB08559250BA558008A43ED /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

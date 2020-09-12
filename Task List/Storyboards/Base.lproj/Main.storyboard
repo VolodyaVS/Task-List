@@ -155,14 +155,14 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="New Task" largeTitleDisplayMode="always" id="BH7-ay-rFE">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="bja-CG-uHO">
+                                        <barButtonItem key="leftBarButtonItem" id="bja-CG-uHO">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZDS-iU-0jn">
                                                 <rect key="frame" x="16" y="7" width="71" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Cancel"/>
                                             </button>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="BuS-g3-Ee1">
+                                        <barButtonItem key="rightBarButtonItem" id="BuS-g3-Ee1">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Vuw-1U-Z9G">
                                                 <rect key="frame" x="233" y="7" width="71" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -177,7 +177,7 @@
                         <viewLayoutGuide key="safeArea" id="2xM-Mj-aYo"/>
                     </view>
                     <navigationItem key="navigationItem" id="X9u-NP-DA6">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="YHP-MY-1db"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="YHP-MY-1db"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQa-MQ-hmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
