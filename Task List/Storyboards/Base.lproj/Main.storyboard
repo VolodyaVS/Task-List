@@ -40,7 +40,7 @@
         <!--Login View Controller-->
         <scene sceneID="gpW-Vd-nFL">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" title="Login View Controller" id="cIS-7e-FnV" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" title="Login View Controller" modalPresentationStyle="fullScreen" id="cIS-7e-FnV" customClass="AuthorizationViewController" customModule="Task_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GC7-OL-dTt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,26 +60,6 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANV-LL-FaW">
-                                <rect key="frame" x="14" y="417" width="118" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="cUl-ps-SYk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Forgot User Name?">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftD-6z-QGm">
-                                <rect key="frame" x="197" y="417" width="109" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="pqd-OE-u7g"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Forgot Password?">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="urO-v8-4Qc">
                                 <rect key="frame" x="133" y="356" width="54" height="36"/>
                                 <constraints>
@@ -90,27 +70,26 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Q3k-Bq-U4L" kind="presentation" identifier="login" modalPresentationStyle="fullScreen" id="oER-rO-rPl"/>
+                                    <action selector="loginButtonAction" destination="cIS-7e-FnV" eventType="touchUpInside" id="jgh-0M-Fck"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.5306830357433715" green="0.48044920184474915" blue="0.96848052740097046" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="ftD-6z-QGm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ANV-LL-FaW" secondAttribute="trailing" constant="8" symbolic="YES" id="358-96-wh4"/>
-                            <constraint firstItem="ANV-LL-FaW" firstAttribute="leading" secondItem="ydD-SL-gUV" secondAttribute="leading" constant="14" id="7x7-Zm-2K8"/>
-                            <constraint firstItem="ydD-SL-gUV" firstAttribute="trailing" secondItem="ftD-6z-QGm" secondAttribute="trailing" constant="14" id="Djs-F4-J7w"/>
                             <constraint firstItem="urO-v8-4Qc" firstAttribute="top" secondItem="6xd-0g-ZLL" secondAttribute="bottom" constant="30" id="GTh-Uy-Shh"/>
                             <constraint firstItem="6xd-0g-ZLL" firstAttribute="leading" secondItem="ydD-SL-gUV" secondAttribute="leading" constant="25" id="MQJ-pa-wOg"/>
                             <constraint firstItem="ydD-SL-gUV" firstAttribute="trailing" secondItem="6xd-0g-ZLL" secondAttribute="trailing" constant="25" id="Pzi-Dg-Xle"/>
                             <constraint firstItem="urO-v8-4Qc" firstAttribute="centerX" secondItem="GC7-OL-dTt" secondAttribute="centerX" id="Wyd-J8-2Ou"/>
-                            <constraint firstItem="ANV-LL-FaW" firstAttribute="top" secondItem="urO-v8-4Qc" secondAttribute="bottom" constant="25" id="jx2-px-atX"/>
                             <constraint firstItem="6xd-0g-ZLL" firstAttribute="centerY" secondItem="GC7-OL-dTt" secondAttribute="centerY" id="n4O-Am-tL2"/>
                             <constraint firstItem="6xd-0g-ZLL" firstAttribute="centerX" secondItem="GC7-OL-dTt" secondAttribute="centerX" id="rWg-lc-Ghp"/>
-                            <constraint firstItem="ftD-6z-QGm" firstAttribute="top" secondItem="6xd-0g-ZLL" secondAttribute="bottom" constant="91" id="sQq-Ek-SSO"/>
-                            <constraint firstItem="ANV-LL-FaW" firstAttribute="centerY" secondItem="ftD-6z-QGm" secondAttribute="centerY" id="uKO-Dm-3Ei"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ydD-SL-gUV"/>
                     </view>
+                    <connections>
+                        <outlet property="passwordTFOutlet" destination="8Kt-UM-2HR" id="85o-1n-6j7"/>
+                        <outlet property="userNameTFOutlet" destination="uIT-wq-OKu" id="JQQ-2Q-CWW"/>
+                        <segue destination="Q3k-Bq-U4L" kind="presentation" identifier="logIn" modalPresentationStyle="fullScreen" id="s76-oi-WCz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xWc-y4-DD8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
