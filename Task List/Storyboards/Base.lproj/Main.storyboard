@@ -7,39 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Task View Controller-->
-        <scene sceneID="rJ2-uf-Xx4">
-            <objects>
-                <tableViewController title="Task View Controller" id="0os-bV-UPd" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QbO-B8-SWF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <color key="sectionIndexColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="sectionIndexBackgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="sectionIndexTrackingBackgroundColor" red="0.6749753866" green="0.83511034780000004" blue="0.85620409249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="task" id="4o8-oE-awc">
-                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4o8-oE-awc" id="HfN-oO-HDF">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="0os-bV-UPd" id="xr7-Ft-00I"/>
-                            <outlet property="delegate" destination="0os-bV-UPd" id="22C-7j-7KT"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Task List" image="archivebox.fill" catalog="system" id="LmG-2P-9EI"/>
-                    <navigationItem key="navigationItem" title="Task List View Controller" id="HBJ-EO-cJ2"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UiZ-wu-dcH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="218" y="760"/>
-        </scene>
         <!--Task Navigation Controller-->
         <scene sceneID="esb-gc-xQ9">
             <objects>
@@ -59,6 +26,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJR-1q-U77" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-96" y="-40"/>
+        </scene>
+        <!--TaskView-->
+        <scene sceneID="ukT-Mg-0mO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TaskView" referencedIdentifier="TaskView" id="5WB-fj-kqA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="aFF-Jl-ZHf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8FD-OR-5go" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="187" y="436"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="gpW-Vd-nFL">
@@ -152,11 +129,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zlP-68-q1D">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="0os-bV-UPd" kind="relationship" relationship="viewControllers" id="cxj-7u-4j7"/>
+                        <segue destination="5WB-fj-kqA" kind="relationship" relationship="viewControllers" id="dzM-R3-eLM"/>
                         <segue destination="VLS-Dm-c6M" kind="relationship" relationship="viewControllers" id="cUi-n3-zCN"/>
                     </connections>
                 </tabBarController>
@@ -240,7 +218,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="archivebox.fill" catalog="system" width="128" height="106"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
     </resources>
