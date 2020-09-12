@@ -24,9 +24,9 @@ extension Task {
         let dueDates = DataManager.shared.dueDates
         
         for index in 0..<tasks.count {
-            let person = Task(task: tasks[index],
+            let tasks = Task(task: tasks[index],
                                   dueDates: dueDates[index])
-            tasksList.append(person)
+            tasksList.append(tasks)
         }
         return tasksList
     }
