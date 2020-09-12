@@ -11,11 +11,11 @@ import Foundation
 struct Task {
     
     let task: String
-    let dueDate: Date
+    let dueDate: String
 }
 
 extension Task {
-
+    
     static func getTaskList() -> [Task] {
         
         var tasksList: [Task] = []
@@ -25,9 +25,15 @@ extension Task {
         
         for index in 0..<tasks.count {
             let tasks = Task(task: tasks[index],
-                                  dueDates: dueDates[index])
+                             dueDate: dueDates[index])
             tasksList.append(tasks)
         }
         return tasksList
     }
+    //
+    //    func dataFormatter (dateString: String) -> Date {
+    //        let dateFormatter = DateFormatter()
+    //        dateFormatter.dateFormat = "dd/MM/yyyy"
+    //        return dateFormatter.date(from: dateString) ?? Date()
+    //    }
 }

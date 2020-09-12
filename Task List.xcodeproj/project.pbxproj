@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		92AE9B38250C5530003F1095 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE9B37250C5530003F1095 /* Task.swift */; };
+		92AE9B42250D022D003F1095 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE9B41250D022D003F1095 /* DataManager.swift */; };
 		FF0F497C250CFEAD001C789F /* TaskView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0F497B250CFEAD001C789F /* TaskView.storyboard */; };
 		FFB08557250BA558008A43ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB08556250BA558008A43ED /* AppDelegate.swift */; };
 		FFB08559250BA558008A43ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB08558250BA558008A43ED /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		92AE9B37250C5530003F1095 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Task.swift; path = "Task List/Task.swift"; sourceTree = SOURCE_ROOT; };
+		92AE9B41250D022D003F1095 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		FF0F497B250CFEAD001C789F /* TaskView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskView.storyboard; sourceTree = "<group>"; };
 		FFB08553250BA558008A43ED /* Task List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB08556250BA558008A43ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				FF4D6C22250C0C110020ADF2 /* Storyboards */,
 				FF4D6C23250C0C250020ADF2 /* SupportingFiles */,
 				FF4D6C24250C0C3B0020ADF2 /* Sources */,
+				92AE9B41250D022D003F1095 /* DataManager.swift */,
 			);
 			path = "Task List";
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFB08557250BA558008A43ED /* AppDelegate.swift in Sources */,
+				92AE9B42250D022D003F1095 /* DataManager.swift in Sources */,
 				92AE9B38250C5530003F1095 /* Task.swift in Sources */,
 				FFB08559250BA558008A43ED /* SceneDelegate.swift in Sources */,
 			);
