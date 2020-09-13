@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92157D19250D9773008B1420 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92157D18250D9773008B1420 /* TaskViewController.swift */; };
+		92157D1B250D97AE008B1420 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92157D1A250D97AE008B1420 /* TabBarViewController.swift */; };
+		925660D4250DFFA900436479 /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925660D3250DFFA900436479 /* TaskViewCell.swift */; };
 		92AE9B38250C5530003F1095 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE9B37250C5530003F1095 /* Task.swift */; };
 		92AE9B42250D022D003F1095 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE9B41250D022D003F1095 /* DataManager.swift */; };
 		C7DACA54250D4E6700BDE705 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DACA53250D4E6700BDE705 /* User.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92157D18250D9773008B1420 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = SOURCE_ROOT; };
+		92157D1A250D97AE008B1420 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = SOURCE_ROOT; };
+		925660D3250DFFA900436479 /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = SOURCE_ROOT; };
 		92AE9B37250C5530003F1095 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Task.swift; path = "Task List/Task.swift"; sourceTree = SOURCE_ROOT; };
 		92AE9B41250D022D003F1095 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C7DACA53250D4E6700BDE705 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -54,6 +60,9 @@
 			children = (
 				FF0F497D250D0286001C789F /* LaunchScreenViewController.swift */,
 				C7DACA55250D501A00BDE705 /* AuthorizationViewController.swift */,
+				92157D18250D9773008B1420 /* TaskViewController.swift */,
+				92157D1A250D97AE008B1420 /* TabBarViewController.swift */,
+				925660D3250DFFA900436479 /* TaskViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,10 +208,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7DACA56250D501A00BDE705 /* AuthorizationViewController.swift in Sources */,
+				92157D19250D9773008B1420 /* TaskViewController.swift in Sources */,
 				FFB08557250BA558008A43ED /* AppDelegate.swift in Sources */,
 				92AE9B42250D022D003F1095 /* DataManager.swift in Sources */,
 				C7DACA54250D4E6700BDE705 /* User.swift in Sources */,
 				92AE9B38250C5530003F1095 /* Task.swift in Sources */,
+				92157D1B250D97AE008B1420 /* TabBarViewController.swift in Sources */,
+				925660D4250DFFA900436479 /* TaskViewCell.swift in Sources */,
 				FF0F497E250D0286001C789F /* LaunchScreenViewController.swift in Sources */,
 				FFB08559250BA558008A43ED /* SceneDelegate.swift in Sources */,
 			);
