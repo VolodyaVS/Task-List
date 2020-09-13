@@ -9,7 +9,9 @@
 import UIKit
 
 class TaskViewCell: UITableViewCell {
+    
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var dueDataLabel: UILabel!
     @IBOutlet weak var doneImageView: UIImageView!
+    
 }
