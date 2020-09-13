@@ -12,6 +12,7 @@
 		925660D4250DFFA900436479 /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925660D3250DFFA900436479 /* TaskViewCell.swift */; };
 		92AE9B38250C5530003F1095 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE9B37250C5530003F1095 /* Task.swift */; };
 		92AE9B42250D022D003F1095 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AE9B41250D022D003F1095 /* DataManager.swift */; };
+		C78952C3250E7A1900D76BE4 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78952C2250E7A1900D76BE4 /* EditTaskViewController.swift */; };
 		C7DACA54250D4E6700BDE705 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DACA53250D4E6700BDE705 /* User.swift */; };
 		C7DACA56250D501A00BDE705 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DACA55250D501A00BDE705 /* AuthorizationViewController.swift */; };
 		FF0F497C250CFEAD001C789F /* TaskView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0F497B250CFEAD001C789F /* TaskView.storyboard */; };
@@ -30,6 +31,7 @@
 		925660D3250DFFA900436479 /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = SOURCE_ROOT; };
 		92AE9B37250C5530003F1095 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Task.swift; path = "Task List/Task.swift"; sourceTree = SOURCE_ROOT; };
 		92AE9B41250D022D003F1095 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		C78952C2250E7A1900D76BE4 /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditTaskViewController.swift; path = "Task List/EditTaskViewController.swift"; sourceTree = SOURCE_ROOT; };
 		C7DACA53250D4E6700BDE705 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C7DACA55250D501A00BDE705 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthorizationViewController.swift; path = "Task List/AuthorizationViewController.swift"; sourceTree = SOURCE_ROOT; };
 		FF0F497B250CFEAD001C789F /* TaskView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskView.storyboard; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				92157D18250D9773008B1420 /* TaskViewController.swift */,
 				92157D1A250D97AE008B1420 /* TabBarViewController.swift */,
 				925660D3250DFFA900436479 /* TaskViewCell.swift */,
+				C78952C2250E7A1900D76BE4 /* EditTaskViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				925660D4250DFFA900436479 /* TaskViewCell.swift in Sources */,
 				FF0F497E250D0286001C789F /* LaunchScreenViewController.swift in Sources */,
 				FFB08559250BA558008A43ED /* SceneDelegate.swift in Sources */,
+				C78952C3250E7A1900D76BE4 /* EditTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

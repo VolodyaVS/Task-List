@@ -10,15 +10,39 @@ import UIKit
 
 class AuthorizationViewController: UIViewController {
     
+    // MARK: - IB Outlets
     @IBOutlet weak var userNameTFOutlet: UITextField!
     @IBOutlet weak var passwordTFOutlet: UITextField!
     
+    // MARK: - Private properties
+    private let primaryColor = UIColor(
+        red: 80/255,
+        green: 82/255,
+        blue: 100/255,
+        alpha: 1
+    )
+    private let secondaryColor = UIColor(
+        red: 190/255,
+        green: 190/255,
+        blue: 190/255,
+        alpha: 1
+    )
     
+    // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navBarVC = segue.destination as! UINavigationController
+        let tabBarVC = navBarVC.topViewController as! TabBarViewController
+        //          let tasksVC = tabBarVC.viewControllers?.first as! TaskViewController
+        tabBarVC.user = sender as? User
+    }
+    
+    //MARK – IB Actions
     @IBAction func loginButtonAction() {
         guard let userName = userNameTFOutlet.text, !userName.isEmpty else {
             showAlert(title: "Username is empty", message: "Please enter username")
@@ -26,21 +50,22 @@ class AuthorizationViewController: UIViewController {
         }
         
         guard let password = passwordTFOutlet.text, !password.isEmpty else {
-                   showAlert(title: "Password is empty", message: "Please enter password")
-                   return
-               }
+            showAlert(title: "Password is empty", message: "Please enter password")
+            return
+        }
         
         guard let user = User.authorizationCheck(username: userName, password: password) else {
             showAlert(title: "User not found", message: "Please try again or register")
             return
         }
-        
         performSegue(withIdentifier: "logIn", sender: user)
     }
+    
 }
 
 // MARK: - Alert Controller
 extension AuthorizationViewController {
+    
     private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
@@ -49,6 +74,7 @@ extension AuthorizationViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
 }
 
 // MARK: Text Field Delegate
@@ -68,5 +94,18 @@ extension AuthorizationViewController: UITextFieldDelegate {
         }
         return true
     }
+    
 }
 
+// MARK: - Set background color
+extension AuthorizationViewController {
+    func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [topColor.cgColor, bottomColor.cgColor]
+        gradient.locations = [0.0, 1.0]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+        view.layer.insertSublayer(gradient, at: 0)
+    }
+}

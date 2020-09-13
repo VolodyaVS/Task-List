@@ -74,7 +74,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.5306830357433715" green="0.48044920184474915" blue="0.96848052740097046" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.31455354419563186" green="0.32105061848548971" blue="0.39378806099624081" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="urO-v8-4Qc" firstAttribute="top" secondItem="6xd-0g-ZLL" secondAttribute="bottom" constant="30" id="GTh-Uy-Shh"/>
                             <constraint firstItem="6xd-0g-ZLL" firstAttribute="leading" secondItem="ydD-SL-gUV" secondAttribute="leading" constant="25" id="MQJ-pa-wOg"/>
@@ -101,9 +101,9 @@
                 <tabBarController title="Task Tab Bar Controller" automaticallyAdjustsScrollViewInsets="NO" id="4CB-rM-yZb" customClass="TabBarViewController" customModule="Task_List" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Task List" largeTitleDisplayMode="never" id="YvE-lD-CjR">
-                        <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="5kE-y8-NeZ">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="5kE-y8-NeZ">
                             <connections>
-                                <segue destination="yzQ-hd-lKf" kind="show" id="ob9-ag-h9M"/>
+                                <segue destination="yzQ-hd-lKf" kind="show" identifier="addTask" id="ob9-ag-h9M"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -121,10 +121,10 @@
             </objects>
             <point key="canvasLocation" x="660" y="-40.140845070422536"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Task View Controller-->
         <scene sceneID="tvQ-fF-b4y">
             <objects>
-                <viewController id="yzQ-hd-lKf" sceneMemberID="viewController">
+                <viewController id="yzQ-hd-lKf" customClass="EditTaskViewController" customModule="Task_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oHw-xv-svT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,17 +151,50 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Dqi-UN-x9R">
+                                <rect key="frame" x="28" y="91" width="269" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j4S-zy-ZSX">
+                                <rect key="frame" x="28" y="189" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="HMy-nA-7Zu">
+                                <rect key="frame" x="2" y="270" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="isFavorite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3V-Zi-l7E">
+                                <rect key="frame" x="101" y="194" width="73" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.53068303569999997" green="0.4804492018" blue="0.96848052740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="2xM-Mj-aYo"/>
                     </view>
                     <navigationItem key="navigationItem" id="X9u-NP-DA6">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="YHP-MY-1db"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="YHP-MY-1db">
+                            <connections>
+                                <action selector="saveButtonAction:" destination="yzQ-hd-lKf" id="BNi-fJ-Klx"/>
+                                <segue destination="qam-Fq-5v6" kind="unwind" identifier="saveNewTask" unwindAction="unwind:" id="aQd-QU-ndS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePickerTaskOutlet" destination="HMy-nA-7Zu" id="iFK-du-tgu"/>
+                        <outlet property="isFavoriteSwitchOutlet" destination="j4S-zy-ZSX" id="PzO-vI-Z3H"/>
+                        <outlet property="saveButtonOutlet" destination="YHP-MY-1db" id="R2j-Pa-Bga"/>
+                        <outlet property="taskTFOutlet" destination="Dqi-UN-x9R" id="mS7-la-4VG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQa-MQ-hmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="qam-Fq-5v6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1442" y="-40"/>
+            <point key="canvasLocation" x="1441.875" y="-40.140845070422536"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="hUB-3F-Qs6">
@@ -197,7 +230,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="square.and.pencil" catalog="system" width="128" height="118"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
     </resources>
 </document>
