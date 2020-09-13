@@ -9,32 +9,36 @@
 import UIKit
 
 class TaskViewController: UITableViewController {
-
+    
+    // MARK: - Public Properties
     var tasks = Task.getTaskList(user: nil)
     var user: User!
+    
+    // MARK: - Private properties
     private var isAscending = true
     
-//    private var sortButton = UIBarButtonItem(image: UIImage(systemName: "arrow.down"),
-//    style: .plain, target: self,
-//    action: #selector(inversedSorting))
-
+    //    private var sortButton = UIBarButtonItem(image: UIImage(systemName: "arrow.down"),
+    //    style: .plain, target: self,
+    //    action: #selector(inversedSorting))
+    
+    // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         sorting()
         let sortButton = UIBarButtonItem(image: UIImage(systemName: "arrow.down"),
-        style: .plain, target: self,
-        action: #selector(inversedSorting))
-
+                                         style: .plain, target: self,
+                                         action: #selector(inversedSorting))
+        
         self.tabBarController?.navigationItem.leftBarButtonItems = [sortButton]
         
     }
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "task", for: indexPath) as! TaskViewCell
         let task = tasks[indexPath.row]
@@ -56,7 +60,7 @@ class TaskViewController: UITableViewController {
             self.tabBarController?.navigationItem.leftBarButtonItem?.image
                 = UIImage(systemName: "arrow.down")
         } else {
-              self.tabBarController?.navigationItem.leftBarButtonItem?.image
+            self.tabBarController?.navigationItem.leftBarButtonItem?.image
                 = UIImage(systemName: "arrow.up")
         }
         sorting()
@@ -86,5 +90,5 @@ class TaskViewController: UITableViewController {
         let task = sourceVC.newTask
         tasks.append(task)
         tableView.reloadData()
-       }
+    }
 }

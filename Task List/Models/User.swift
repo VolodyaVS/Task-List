@@ -7,24 +7,21 @@
 //
 
 struct User {
-    var name: String
-    var mail: String
-    var password: String
-}
-
-// init function
-extension User {
     
-    static func authorizationCheck(username: String, password: String) -> User? {
+    var name: String
+    var password: String
+    
+    static func getUserData() -> [User] {
         
-        let users = DataManager.shared.users
-     
-        if let user = users[username] {
-            if user.password == password {
-                return user
-            }
+        var users: [User] = []
+        for (key, value) in DataManager.shared.users {
+            users.append(User(name: key, password: value))
         }
-        return nil
+        
+        return users
+    }
+    
+    static func addNewUser(name: String, password: String) {
+        DataManager.shared.users[name] = password
     }
 }
-

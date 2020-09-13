@@ -44,12 +44,58 @@ class AuthorizationViewController: UIViewController {
     
     //MARK – IB Actions
     @IBAction func loginButtonAction() {
-        guard let userName = userNameTFOutlet.text, !userName.isEmpty else {
-            showAlert(title: "Username is empty", message: "Please enter username")
+        let users = User.getUserData()
+        
+        guard let username = userNameTFOutlet.text, !username.isEmpty else {
+            showAlert(title:"Oooooops!😱",
+                      message: "Your username field is empty")
+            return
+        }
+        guard let password = passwordTFOutlet.text, !password.isEmpty else {
+            showAlert(title:"Oooooops!😱",
+                      message: "Your passworld field is empty")
             return
         }
         
-        guard let password = passwordTFOutlet.text, !password.isEmpty else {
+        for user in users {
+            if user.name == username && user.password == password  {
+                performSegue(withIdentifier: "logIn", sender: nil)
+            } else { continue }
+        }
+        
+        showAlert(title: "Oooooops!😱", message: "Your login or password is wrong")
+        passwordTFOutlet.text = ""
+    }
+    
+    @IBAction func forgotCredentialsAction() {
+        let users = User.getUserData()
+
+        var availableUsers: [String] = []
+        var availablePasswords: [String] = []
+        
+        for user in users {
+            availableUsers.append(user.name)
+            availablePasswords.append(user.password)
+        }
+        
+        let combinedList = Array(zip(availableUsers, availablePasswords))
+        let finalList = combinedList
+        .map{ "\($0), \($1)" }
+        .joined(separator:"; ")
+
+        showAlert(title: "Don't worry!😎",
+                  message: "Available pairs of login & password are: \(finalList)")
+        }
+    
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        guard let registrationVC = segue.source as? RegistrationViewController
+            else { return }
+        guard let newUserName = registrationVC.newUserNameRegistration.text,
+            !newUserName.isEmpty else { return }
+        guard let newPassword = registrationVC.newPasswordRegistration.text,
+            !newPassword.isEmpty else { return }
+        User.addNewUser(name: newUserName, password: newPassword)
+
             showAlert(title: "Password is empty", message: "Please enter password")
             return
         }
@@ -59,6 +105,7 @@ class AuthorizationViewController: UIViewController {
             return
         }
         performSegue(withIdentifier: "logIn", sender: user)
+
     }
     
 }

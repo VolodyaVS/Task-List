@@ -9,14 +9,23 @@
 import UIKit
 
 class EditTaskViewController: UIViewController {
+    
+    // MARK: - IB Outlets
     @IBOutlet var taskTFOutlet: UITextField!
     @IBOutlet var isFavoriteSwitchOutlet: UISwitch!
     @IBOutlet var datePickerTaskOutlet: UIDatePicker!
     @IBOutlet var saveButtonOutlet: UIBarButtonItem!
     
+    // MARK: - Public properties
     var user: User!
-    var newTask = Task(task: "", dueDate: "", done: false, priority: 1, isFavorite: false, user: nil)
+    var newTask = Task(task: "",
+                       dueDate: "",
+                       done: false,
+                       priority: 1,
+                       isFavorite: false,
+                       user: nil)
     
+    // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         datePickerTaskOutlet.datePickerMode = .date
@@ -35,4 +44,5 @@ class EditTaskViewController: UIViewController {
             newTask.isFavorite = isFavoriteSwitchOutlet.isOn
         }
     }
+    
 }
