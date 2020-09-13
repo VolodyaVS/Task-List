@@ -22,7 +22,6 @@
 		FFB08559250BA558008A43ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB08558250BA558008A43ED /* SceneDelegate.swift */; };
 		FFB0855E250BA558008A43ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB0855C250BA558008A43ED /* Main.storyboard */; };
 		FFB08560250BA55B008A43ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFB0855F250BA55B008A43ED /* Assets.xcassets */; };
-		FFB0856B250BAC1E008A43ED /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FFB0856A250BAC1E008A43ED /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 		FFB0855D250BA558008A43ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FFB0855F250BA55B008A43ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFB08564250BA55B008A43ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FFB0856A250BAC1E008A43ED /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +125,6 @@
 		FFB08555250BA558008A43ED /* Task List */ = {
 			isa = PBXGroup;
 			children = (
-				FFB0856A250BAC1E008A43ED /* .gitignore */,
 				FF4D6C20250C0BDE0020ADF2 /* ViewControllers */,
 				FF4D6C21250C0BF60020ADF2 /* Models */,
 				FF4D6C22250C0C110020ADF2 /* Storyboards */,
@@ -196,7 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF0F497C250CFEAD001C789F /* TaskView.storyboard in Resources */,
-				FFB0856B250BAC1E008A43ED /* .gitignore in Resources */,
 				FFB08560250BA55B008A43ED /* Assets.xcassets in Resources */,
 				FF0F4982250D329F001C789F /* LaunchScreen.xib in Resources */,
 				FFB0855E250BA558008A43ED /* Main.storyboard in Resources */,
