@@ -18,6 +18,4 @@ class DataManager {
     let dueDates = ["02/10/2020", "15/09/2020", "30/09/2020"]
     let dones = [false, true, false]
     
-    // add User
-    let users: Dictionary<String, User> = ["1": User(name: "1", mail: "mail@mail.ru", password: "1")]
 }

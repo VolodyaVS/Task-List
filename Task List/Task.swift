@@ -12,6 +12,7 @@ struct Task {
     
     let task: String
     let dueDate: String
+    let done: Bool
 }
 
 extension Task {
@@ -22,10 +23,12 @@ extension Task {
         
         let tasks = DataManager.shared.tasks
         let dueDates = DataManager.shared.dueDates
+        let dones = DataManager.shared.dones
         
         for index in 0..<tasks.count {
             let tasks = Task(task: tasks[index],
-                             dueDate: dueDates[index])
+                             dueDate: dueDates[index],
+                             done: dones[index])
             tasksList.append(tasks)
         }
         return tasksList
@@ -36,4 +39,5 @@ extension Task {
     //        dateFormatter.dateFormat = "dd/MM/yyyy"
     //        return dateFormatter.date(from: dateString) ?? Date()
     //    }
+    
 }
