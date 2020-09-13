@@ -18,6 +18,7 @@
 		FF0F497C250CFEAD001C789F /* TaskView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0F497B250CFEAD001C789F /* TaskView.storyboard */; };
 		FF0F497E250D0286001C789F /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0F497D250D0286001C789F /* LaunchScreenViewController.swift */; };
 		FF0F4982250D329F001C789F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF0F4981250D329F001C789F /* LaunchScreen.xib */; };
+		FF1C1C10250EB9B200D4FD52 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF1C1C0F250EB9B200D4FD52 /* .gitignore */; };
 		FFB08557250BA558008A43ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB08556250BA558008A43ED /* AppDelegate.swift */; };
 		FFB08559250BA558008A43ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB08558250BA558008A43ED /* SceneDelegate.swift */; };
 		FFB0855E250BA558008A43ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFB0855C250BA558008A43ED /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		FF0F497B250CFEAD001C789F /* TaskView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskView.storyboard; sourceTree = "<group>"; };
 		FF0F497D250D0286001C789F /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchScreenViewController.swift; path = "Task List/LaunchScreenViewController.swift"; sourceTree = SOURCE_ROOT; };
 		FF0F4981250D329F001C789F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		FF1C1C0F250EB9B200D4FD52 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		FFB08553250BA558008A43ED /* Task List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFB08556250BA558008A43ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFB08558250BA558008A43ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		FFB08555250BA558008A43ED /* Task List */ = {
 			isa = PBXGroup;
 			children = (
+				FF1C1C0F250EB9B200D4FD52 /* .gitignore */,
 				FF4D6C20250C0BDE0020ADF2 /* ViewControllers */,
 				FF4D6C21250C0BF60020ADF2 /* Models */,
 				FF4D6C22250C0C110020ADF2 /* Storyboards */,
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF1C1C10250EB9B200D4FD52 /* .gitignore in Resources */,
 				FF0F497C250CFEAD001C789F /* TaskView.storyboard in Resources */,
 				FFB08560250BA55B008A43ED /* Assets.xcassets in Resources */,
 				FF0F4982250D329F001C789F /* LaunchScreen.xib in Resources */,
