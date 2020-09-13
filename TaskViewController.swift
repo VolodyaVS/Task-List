@@ -10,7 +10,8 @@ import UIKit
 
 class TaskViewController: UITableViewController {
 
-    var tasks = Task.getTaskList()
+    var tasks = Task.getTaskList(user: nil)
+    var user: User!
     private var isAscending = true
     
 //    private var sortButton = UIBarButtonItem(image: UIImage(systemName: "arrow.down"),
@@ -71,4 +72,19 @@ class TaskViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    // send user to EditTaskViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addtask" {
+            let addTaskVC = segue.destination as! EditTaskViewController
+            addTaskVC.user = user
+        }
+    }
+    // get new task from EditTaskViewController
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
+        guard segue.identifier == "saveNewTask" else { return }
+        let sourceVC = segue.source as! EditTaskViewController
+        let task = sourceVC.newTask
+        tasks.append(task)
+        tableView.reloadData()
+       }
 }

@@ -26,9 +26,9 @@ class AuthorizationViewController: UIViewController {
         }
         
         guard let password = passwordTFOutlet.text, !password.isEmpty else {
-                   showAlert(title: "Password is empty", message: "Please enter password")
-                   return
-               }
+            showAlert(title: "Password is empty", message: "Please enter password")
+            return
+        }
         
         guard let user = User.authorizationCheck(username: userName, password: password) else {
             showAlert(title: "User not found", message: "Please try again or register")
@@ -36,6 +36,13 @@ class AuthorizationViewController: UIViewController {
         }
         
         performSegue(withIdentifier: "logIn", sender: user)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navBarVC = segue.destination as! UINavigationController
+        let tabBarVC = navBarVC.topViewController as! TabBarViewController
+        //          let tasksVC = tabBarVC.viewControllers?.first as! TaskViewController
+        tabBarVC.user = sender as? User
     }
 }
 

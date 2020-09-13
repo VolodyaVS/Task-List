@@ -10,18 +10,23 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
 
-    var tasks = Task.getTaskList()
+    
+    var user: User!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tasks = Task.getTaskList(user: user)
         setupViewControllers(with: tasks)
     }
     
     private func setupViewControllers(with task: [Task]) {
+       
         let tasksListVC = viewControllers?.first as! TaskViewController
 //        let favoriteVC = viewControllers?.last as!
-        
-        tasksListVC.tasks = tasks
+
+//        tasksListVC.tasks = task
+        tasksListVC.user = user
 //        favoriteVC.tasks = tasks
     }
 }
