@@ -24,7 +24,7 @@ class TaskViewController: UITableViewController {
 
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "task", for: indexPath)
         let task = tasks[indexPath.row]
         cell.textLabel?.text = task.task
         cell.detailTextLabel?.text = task.dueDate
