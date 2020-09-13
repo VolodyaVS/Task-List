@@ -35,7 +35,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8FD-OR-5go" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="187" y="436"/>
+            <point key="canvasLocation" x="194" y="445"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="gpW-Vd-nFL">
@@ -98,7 +98,7 @@
         <!--Task Tab Bar Controller-->
         <scene sceneID="D9z-1v-au6">
             <objects>
-                <tabBarController title="Task Tab Bar Controller" automaticallyAdjustsScrollViewInsets="NO" id="4CB-rM-yZb" sceneMemberID="viewController">
+                <tabBarController title="Task Tab Bar Controller" automaticallyAdjustsScrollViewInsets="NO" id="4CB-rM-yZb" customClass="TabBarViewController" customModule="Task_List" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Task List" largeTitleDisplayMode="never" id="YvE-lD-CjR">
                         <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="5kE-y8-NeZ">
