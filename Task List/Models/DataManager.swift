@@ -19,8 +19,9 @@ class DataManager {
 //    let dones = [false, true, false]
 //    let priority = [1, 2, 3, 2]
     
-    // add User
-    
+    var users: [String: String] = ["User": "Password", "Alexey": "Efimov"]
+  
+    // add User  
     let users: Dictionary<String, User> = ["1": User(name: "1", mail: "mail@mail.ru", password: "1")]
    
     var tasks: [Task] = [
@@ -31,4 +32,5 @@ class DataManager {
                     Task(task: "To find solution", dueDate: "30/09/2020",
                     done: true, priority: 1, isFavorite: true, user: nil)
     ]
+
 }
