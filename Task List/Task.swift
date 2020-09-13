@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct Task {
     
     let task: String
     let dueDate: String
     let done: Bool
+    let priority: Int
 }
 
 extension Task {
@@ -24,11 +26,12 @@ extension Task {
         let tasks = DataManager.shared.tasks
         let dueDates = DataManager.shared.dueDates
         let dones = DataManager.shared.dones
+        let prioritys = DataManager.shared.priority
         
         for index in 0..<tasks.count {
             let tasks = Task(task: tasks[index],
                              dueDate: dueDates[index],
-                             done: dones[index])
+                             done: dones[index], priority: prioritys[index])
             tasksList.append(tasks)
         }
         return tasksList

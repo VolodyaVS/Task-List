@@ -24,5 +24,4 @@ class TabBarViewController: UITabBarController {
         tasksListVC.tasks = tasks
 //        favoriteVC.tasks = tasks
     }
-
 }
