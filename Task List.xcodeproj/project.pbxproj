@@ -121,6 +121,7 @@
 				FF4D6C22250C0C110020ADF2 /* Storyboards */,
 				FF4D6C23250C0C250020ADF2 /* SupportingFiles */,
 				FF4D6C24250C0C3B0020ADF2 /* Sources */,
+				92157D14250D07A0008B1420 /* DataManager.swift */,
 			);
 			path = "Task List";
 			sourceTree = "<group>";
