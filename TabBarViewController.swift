@@ -9,24 +9,26 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
     
+    // MARK: - Public Properties
     var user: User!
     
-
+    // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         let tasks = Task.getTaskList(user: user)
         setupViewControllers(with: tasks)
     }
     
+    // MARK: - Private methods
     private func setupViewControllers(with task: [Task]) {
-       
+        
         let tasksListVC = viewControllers?.first as! TaskViewController
-//        let favoriteVC = viewControllers?.last as!
-
-//        tasksListVC.tasks = task
+        //        let favoriteVC = viewControllers?.last as!
+        
+        //        tasksListVC.tasks = task
         tasksListVC.user = user
-//        favoriteVC.tasks = tasks
+        //        favoriteVC.tasks = tasks
     }
+    
 }
