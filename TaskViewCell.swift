@@ -27,17 +27,3 @@ class TaskViewCell: UITableViewCell {
     }
     
 }
-
-extension TaskViewCell {
-    
-    func addGradient(topColor: UIColor, bottomColor: UIColor) {
-        let gradient = CAGradientLayer()
-        gradient.frame = contentView.bounds
-        gradient.colors = [topColor.cgColor, bottomColor.cgColor]
-        gradient.locations = [0.0, 1.0]
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 0, y: 1)
-        contentView.layer.insertSublayer(gradient, at: 0)
-    }
-    
-}

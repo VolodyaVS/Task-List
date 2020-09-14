@@ -24,11 +24,7 @@ class TabBarViewController: UITabBarController {
     private func setupViewControllers(with task: [Task]) {
         
         let tasksListVC = viewControllers?.first as! TaskViewController
-//        let favoriteVC = viewControllers?.last as! FavoritesTasksTableViewController
-        
-        //        tasksListVC.tasks = task
         tasksListVC.user = user
-        //        favoriteVC.tasks = tasks
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "addTask" {
