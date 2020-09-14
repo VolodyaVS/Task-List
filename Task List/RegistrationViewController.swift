@@ -9,16 +9,18 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
-
+    
+    // MARK: - IB Outlets
     @IBOutlet var newUserNameRegistration: UITextField!
     @IBOutlet var newPasswordRegistration: UITextField!
     
+    // MARK: - Override methods
     override func viewDidLoad() {
         newUserNameRegistration.delegate = self
         newPasswordRegistration.delegate = self
     }
     
-    
+    //MARK: – IB Actions
     @IBAction func registerButtonTapped() {
         guard let username = newUserNameRegistration.text, !username.isEmpty
             else { showAlert(title:"Oooooops!😱",
@@ -32,9 +34,6 @@ class RegistrationViewController: UIViewController {
         }
         performSegue(withIdentifier: "registrationSegue", sender: self)
     }
-    
-
-
     
     @IBAction func cancelButtonPressed() {
         dismiss(animated: true)

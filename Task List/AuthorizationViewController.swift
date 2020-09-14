@@ -31,10 +31,10 @@ class AuthorizationViewController: UIViewController {
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         userNameTFOutlet.delegate = self
         passwordTFOutlet.delegate = self
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -44,9 +44,9 @@ class AuthorizationViewController: UIViewController {
         tabBarVC.user = sender as? User
     }
     
-    //MARK – IB Actions
+    //MARK: – IB Actions
     @IBAction func loginButtonAction() {
-      
+        
         guard let userName = userNameTFOutlet.text, !userName.isEmpty else {
             showAlert(title:"Oooooops!😱",
                       message: "Your username field is empty")
@@ -59,16 +59,16 @@ class AuthorizationViewController: UIViewController {
         }
         
         for user in User.getUserData() {
-            if user.name == username && user.password == password  {
+            if user.name == userName && user.password == password  {
                 performSegue(withIdentifier: "logIn", sender: nil)
             } else { continue }
         }
-        performSegue(withIdentifier: "logIn", sender: user)
+        performSegue(withIdentifier: "logIn", sender: nil)
         
     }
     
     @IBAction func forgotCredentialsAction() {
-
+        
         var availableUsers: [String] = []
         var availablePasswords: [String] = []
         
@@ -79,12 +79,12 @@ class AuthorizationViewController: UIViewController {
         
         let combinedList = Array(zip(availableUsers, availablePasswords))
         let finalList = combinedList
-        .map{ "\($0), \($1)" }
-        .joined(separator:"; ")
-
+            .map{ "\($0), \($1)" }
+            .joined(separator:"; ")
+        
         showAlert(title: "Don't worry!😎",
                   message: "Available pairs of login & password are: \(finalList)")
-        }
+    }
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         guard let registrationVC = segue.source as? RegistrationViewController
@@ -92,9 +92,8 @@ class AuthorizationViewController: UIViewController {
         User.addNewUser(name: registrationVC.newUserNameRegistration.text!,
                         password: registrationVC.newPasswordRegistration.text!)
     }
-
+    
 }
-
 
 // MARK: - Alert Controller
 extension AuthorizationViewController {
