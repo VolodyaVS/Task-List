@@ -12,6 +12,7 @@ struct Task {
     
     let task: String
     let dueDate: String
+    var isFavorite: Bool
 }
 
 extension Task {
@@ -25,7 +26,8 @@ extension Task {
         
         for index in 0..<tasks.count {
             let tasks = Task(task: tasks[index],
-                             dueDate: dueDates[index])
+                             dueDate: dueDates[index],
+                             isFavorite: true)
             tasksList.append(tasks)
         }
         return tasksList
