@@ -42,14 +42,17 @@ class RegistrationViewController: UIViewController {
 
 // MARK: - Alert Controller
 extension RegistrationViewController {
+    
     private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             textField?.text = nil
         }
+        
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
 }
 
 // MARK: - Text Field Delegate
@@ -69,5 +72,6 @@ extension RegistrationViewController: UITextFieldDelegate {
         }
         return true
     }
+    
 }
 
