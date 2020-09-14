@@ -17,24 +17,9 @@ class TaskViewController: UITableViewController {
     // MARK: - Private properties
     private var isAscending = true
     
-    private let primaryColor = UIColor(
-        red: 87/255,
-        green: 160/255,
-        blue: 0/255,
-        alpha: 1
-    )
-    private let secondaryColor = UIColor(
-        red: 190/255,
-        green: 190/255,
-        blue: 190/255,
-        alpha: 1
-    )
-    
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         
         sorting()
         
@@ -61,7 +46,6 @@ class TaskViewController: UITableViewController {
         cell.taskDescriptionLabel.text = task.task
         cell.dueDataLabel.text = task.dueDate
         cell.layoutMargins = UIEdgeInsets.zero
-        cell.contentView.backgroundColor = UIColor.clear
         
         if task.done {
             cell.doneButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
@@ -77,12 +61,6 @@ class TaskViewController: UITableViewController {
             tableView.reloadData()
         }
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if cell is TaskViewCell {
-            (cell as! TaskViewCell).addGradient(topColor: primaryColor, bottomColor: secondaryColor)
-        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -163,19 +141,4 @@ class TaskViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .fade  )
         }
     }
-}
-
-// MARK: - Set background color
-extension TaskViewController {
-    
-    func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = [topColor.cgColor, bottomColor.cgColor]
-        gradient.locations = [0.0, 1.0]
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 0, y: 1)
-        view.layer.insertSublayer(gradient, at: 0)
-    }
-    
 }
