@@ -21,20 +21,7 @@ struct Task {
 extension Task {
     
     static func getTaskList(user: User?) -> [Task] {
-        
         let tasksList: [Task] = DataManager.shared.tasks
-        
-//        let tasks = DataManager.shared.task
-//        let dueDates = DataManager.shared.dueDates
-//        let dones = DataManager.shared.dones
-//        let prioritys = DataManager.shared.priority
-//
-//        for index in 0..<tasks.count {
-//            let tasks = Task(task: tasks[index],
-//                             dueDate: dueDates[index],
-//                             done: dones[index], priority: prioritys[index], isFavorite: false, user: user ?? nil)
-//            tasksList.append(tasks)
-//        }
         return tasksList
     }
     
@@ -42,11 +29,4 @@ extension Task {
         let task = Task(task: task, dueDate: duedate, done: done, isFavorite: isFavorite, user: user)
         DataManager.shared.tasks.append(task)
     }
-    //
-    //    func dataFormatter (dateString: String) -> Date {
-    //        let dateFormatter = DateFormatter()
-    //        dateFormatter.dateFormat = "dd/MM/yyyy"
-    //        return dateFormatter.date(from: dateString) ?? Date()
-    //    }
-    
 }
