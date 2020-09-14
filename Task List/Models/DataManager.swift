@@ -18,11 +18,11 @@ class DataManager {
     var users: Dictionary<String, User> = ["1": User(name: "1", password: "1")]
    
     var tasks: [Task] = [
-                    Task(task: "To create task VC", dueDate: "02/10/2020",
+                    Task(task: "Create task VC", dueDate: "02/10/2020",
                     done: true, isFavorite: true, user: nil),
-                    Task(task: "To buy milk", dueDate: "15/09/2020",
+                    Task(task: "Buy milk", dueDate: "15/09/2020",
                     done: false, isFavorite: true, user: nil),
-                    Task(task: "To find solution", dueDate: "30/09/2020",
+                    Task(task: "Find solution", dueDate: "30/09/2020",
                     done: true, isFavorite: true, user: nil)
     ]
 
