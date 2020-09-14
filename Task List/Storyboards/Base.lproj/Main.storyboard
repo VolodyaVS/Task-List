@@ -51,12 +51,12 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F28-og-wCw" userLabel="UserNameRegistration">
                                         <rect key="frame" x="0.0" y="0.0" width="270" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="11d-Nz-ZtE" userLabel="PasswordRegistration">
                                         <rect key="frame" x="0.0" y="50" width="270" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -67,7 +67,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Drz-GT-8vw" kind="unwind" unwindAction="unwindSegueWithSegue:" id="tAR-5S-8Dd"/>
+                                    <action selector="registerButtonTapped" destination="Bq2-Co-o12" eventType="touchUpInside" id="PgN-ZI-HDj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lML-bf-8lj" userLabel="RegistrationButton">
@@ -96,6 +96,7 @@
                     <connections>
                         <outlet property="newPasswordRegistration" destination="11d-Nz-ZtE" id="bpq-tj-yve"/>
                         <outlet property="newUserNameRegistration" destination="F28-og-wCw" id="QHc-rv-pgz"/>
+                        <segue destination="Drz-GT-8vw" kind="unwind" identifier="registrationSegue" unwindAction="unwindSegueWithSegue:" id="vfG-Wr-Nxg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6l-Nf-QbB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -183,8 +184,8 @@
                         <viewLayoutGuide key="safeArea" id="ydD-SL-gUV"/>
                     </view>
                     <connections>
-                        <outlet property="passwordTFOutlet" destination="8Kt-UM-2HR" id="85o-1n-6j7"/>
-                        <outlet property="userNameTFOutlet" destination="uIT-wq-OKu" id="JQQ-2Q-CWW"/>
+                        <outlet property="passwordTFOutlet" destination="8Kt-UM-2HR" id="Ch1-sB-dq9"/>
+                        <outlet property="userNameTFOutlet" destination="uIT-wq-OKu" id="aYv-Db-jzE"/>
                         <segue destination="Q3k-Bq-U4L" kind="presentation" identifier="logIn" modalPresentationStyle="fullScreen" id="s76-oi-WCz"/>
                     </connections>
                 </viewController>

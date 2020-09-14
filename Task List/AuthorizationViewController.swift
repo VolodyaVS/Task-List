@@ -10,13 +10,16 @@ import UIKit
 
 class AuthorizationViewController: UIViewController {
     
-    @IBOutlet weak var userNameTFOutlet: UITextField!
-    @IBOutlet weak var passwordTFOutlet: UITextField!
+    @IBOutlet var userNameTFOutlet: UITextField!
+    @IBOutlet var passwordTFOutlet: UITextField!
     
+    override func viewDidLoad() {
+        userNameTFOutlet.delegate = self
+        passwordTFOutlet.delegate = self
+    }
     
     @IBAction func loginButtonAction() {
-        let users = User.getUserData()
-        
+                
         guard let username = userNameTFOutlet.text, !username.isEmpty else {
             showAlert(title:"Oooooops!😱",
                       message: "Your username field is empty")
@@ -28,7 +31,7 @@ class AuthorizationViewController: UIViewController {
             return
         }
         
-        for user in users {
+        for user in User.getUserData() {
             if user.name == username && user.password == password  {
                 performSegue(withIdentifier: "logIn", sender: nil)
             } else { continue }
@@ -39,12 +42,11 @@ class AuthorizationViewController: UIViewController {
     }
     
     @IBAction func forgotCredentialsAction() {
-        let users = User.getUserData()
 
         var availableUsers: [String] = []
         var availablePasswords: [String] = []
         
-        for user in users {
+        for user in User.getUserData() {
             availableUsers.append(user.name)
             availablePasswords.append(user.password)
         }
@@ -62,11 +64,8 @@ class AuthorizationViewController: UIViewController {
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         guard let registrationVC = segue.source as? RegistrationViewController
             else { return }
-        guard let newUserName = registrationVC.newUserNameRegistration.text,
-            !newUserName.isEmpty else { return }
-        guard let newPassword = registrationVC.newPasswordRegistration.text,
-            !newPassword.isEmpty else { return }
-        User.addNewUser(name: newUserName, password: newPassword)
+        User.addNewUser(name: registrationVC.newUserNameRegistration.text!,
+                        password: registrationVC.newPasswordRegistration.text!)
     }
 }
 
@@ -82,7 +81,7 @@ extension AuthorizationViewController {
     }
 }
 
-// MARK: Text Field Delegate
+// MARK: - Text Field Delegate
 extension AuthorizationViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -95,7 +94,7 @@ extension AuthorizationViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
             passwordTFOutlet.becomeFirstResponder()
         } else {
-            //logInPressed()
+            loginButtonAction()
         }
         return true
     }
