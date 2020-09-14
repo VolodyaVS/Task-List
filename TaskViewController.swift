@@ -13,6 +13,7 @@ class TaskViewController: UITableViewController {
     // MARK: - Public Properties
     var tasks = Task.getTaskList(user: nil)
     var user: User!
+    
     // MARK: - Private properties
     private var isAscending = true
     
@@ -44,11 +45,6 @@ class TaskViewController: UITableViewController {
                                          style: .plain, target: self,
                                          action: #selector(inversedSorting))
         self.tabBarController?.navigationItem.leftBarButtonItems = [sortButton]
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        sorting()
     }
     
     // MARK: - Table view data source
