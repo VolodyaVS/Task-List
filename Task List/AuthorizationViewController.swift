@@ -61,9 +61,11 @@ class AuthorizationViewController: UIViewController {
         for user in User.getUserData() {
             if user.name == userName && user.password == password  {
                 performSegue(withIdentifier: "logIn", sender: nil)
-            } else { continue }
+            } else { showAlert(title: "Oooooops!😱",
+                               message: "The entered data is incorrect")
+            }
         }
-        performSegue(withIdentifier: "logIn", sender: nil)
+        //        performSegue(withIdentifier: "logIn", sender: nil)
         
     }
     
