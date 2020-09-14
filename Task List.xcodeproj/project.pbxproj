@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85CDCDB3250F871E00289A0D /* FavoritesTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CDCDB2250F871E00289A0D /* FavoritesTasksTableViewController.swift */; };
 		92157D19250D9773008B1420 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92157D18250D9773008B1420 /* TaskViewController.swift */; };
 		92157D1B250D97AE008B1420 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92157D1A250D97AE008B1420 /* TabBarViewController.swift */; };
 		925660D4250DFFA900436479 /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925660D3250DFFA900436479 /* TaskViewCell.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85CDCDB2250F871E00289A0D /* FavoritesTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTasksTableViewController.swift; sourceTree = "<group>"; };
 		92157D18250D9773008B1420 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = SOURCE_ROOT; };
 		92157D1A250D97AE008B1420 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = SOURCE_ROOT; };
 		925660D3250DFFA900436479 /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -67,6 +69,7 @@
 				92157D1A250D97AE008B1420 /* TabBarViewController.swift */,
 				925660D3250DFFA900436479 /* TaskViewCell.swift */,
 				C78952C2250E7A1900D76BE4 /* EditTaskViewController.swift */,
+				85CDCDB2250F871E00289A0D /* FavoritesTasksTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -217,9 +220,9 @@
 				C7DACA54250D4E6700BDE705 /* User.swift in Sources */,
 				92AE9B38250C5530003F1095 /* Task.swift in Sources */,
 				92157D1B250D97AE008B1420 /* TabBarViewController.swift in Sources */,
+				85CDCDB3250F871E00289A0D /* FavoritesTasksTableViewController.swift in Sources */,
 				925660D4250DFFA900436479 /* TaskViewCell.swift in Sources */,
 				FF0F497E250D0286001C789F /* LaunchScreenViewController.swift in Sources */,
-				85A4611A250E5640007C3AFF /* FavoritesTasksTableViewController.swift in Sources */,
 				FFB08559250BA558008A43ED /* SceneDelegate.swift in Sources */,
 				C78952C3250E7A1900D76BE4 /* EditTaskViewController.swift in Sources */,
 			);
