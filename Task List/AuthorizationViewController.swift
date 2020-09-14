@@ -107,8 +107,8 @@ class AuthorizationViewController: UIViewController {
 //        performSegue(withIdentifier: "logIn", sender: user)
 //
 //    }
-    
 }
+
 
 // MARK: - Alert Controller
 extension AuthorizationViewController {
