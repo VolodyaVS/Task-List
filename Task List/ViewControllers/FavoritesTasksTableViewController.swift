@@ -68,4 +68,5 @@ class FavoritesTasksTableViewController: UITableViewController {
 
         return action
     }
+    
 }

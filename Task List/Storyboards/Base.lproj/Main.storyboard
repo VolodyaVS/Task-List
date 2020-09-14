@@ -174,7 +174,7 @@
             <objects>
                 <tabBarController title="Task Tab Bar Controller" automaticallyAdjustsScrollViewInsets="NO" id="4CB-rM-yZb" customClass="TabBarViewController" customModule="Task_List" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Task List" largeTitleDisplayMode="never" id="YvE-lD-CjR">
+                    <navigationItem key="navigationItem" title="Task List" id="YvE-lD-CjR">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="5kE-y8-NeZ">
                             <connections>
                                 <segue destination="yzQ-hd-lKf" kind="show" identifier="addTask" id="ob9-ag-h9M"/>
@@ -379,7 +379,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gRO-mh-yoZ"/>
+        <segue reference="ob9-ag-h9M"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="archivebox.fill" catalog="system" width="128" height="106"/>
