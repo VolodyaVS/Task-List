@@ -18,29 +18,36 @@ class EditTaskViewController: UIViewController {
     
     // MARK: - Public properties
     var user: User!
-    var newTask = Task(task: "",
-                       dueDate: "",
+    var task = Task(task: "",
+                       dueDate: "22/11/2020",
                        done: false,
                        isFavorite: false,
                        user: nil)
+    var indexPath: IndexPath!
+    
     
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         datePickerTaskOutlet.datePickerMode = .date
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "dd/MM/yyyy"
+        
+        taskTFOutlet.text = task.task
+        isFavoriteSwitchOutlet.isOn = task.isFavorite
+        datePickerTaskOutlet.date = dateFormater.date(from: task.dueDate)!
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd/MM/yyyy"
         let newTaskDate = dateFormater.string(from: datePickerTaskOutlet.date)
        
-        if segue.identifier == "saveNewTask" {
-            newTask.task = taskTFOutlet.text ?? "default"
-            newTask.dueDate = newTaskDate
-            newTask.user = user
-            newTask.isFavorite = isFavoriteSwitchOutlet.isOn
+        if segue.identifier == "saveTask" {
+            task.task = taskTFOutlet.text ?? "default"
+            task.dueDate = newTaskDate
+            task.user = user
+            task.isFavorite = isFavoriteSwitchOutlet.isOn
         }
     }
     

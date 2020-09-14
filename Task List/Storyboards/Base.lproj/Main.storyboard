@@ -267,7 +267,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="YHP-MY-1db">
                             <connections>
                                 <action selector="saveButtonAction:" destination="yzQ-hd-lKf" id="BNi-fJ-Klx"/>
-                                <segue destination="qam-Fq-5v6" kind="unwind" identifier="saveNewTask" unwindAction="unwind:" id="aQd-QU-ndS"/>
+                                <segue destination="qam-Fq-5v6" kind="unwind" identifier="saveTask" unwindAction="unwind:" id="aQd-QU-ndS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -281,7 +281,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQa-MQ-hmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="qam-Fq-5v6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1441.875" y="-40.140845070422536"/>
+            <point key="canvasLocation" x="2559" y="-40"/>
         </scene>
         <!--Favorites View Controller-->
         <scene sceneID="hUB-3F-Qs6">
@@ -313,7 +313,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Cc-vZ-QSs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121" y="760"/>
+            <point key="canvasLocation" x="660" y="732"/>
         </scene>
         <!--Task View Controller-->
         <scene sceneID="6AE-OF-6X3">
@@ -381,6 +381,7 @@
                                     <outlet property="doneButton" destination="BLp-FB-rbG" id="hFw-77-Hsj"/>
                                     <outlet property="dueDataLabel" destination="GDf-38-X2t" id="TiO-zi-Gsv"/>
                                     <outlet property="taskDescriptionLabel" destination="czS-R8-8zl" id="Ybn-hJ-qtc"/>
+                                    <segue destination="yzQ-hd-lKf" kind="show" identifier="editTask" id="gRO-mh-yoZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -395,9 +396,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tjc-9V-EjL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196.875" y="759.50704225352115"/>
+            <point key="canvasLocation" x="1631" y="-40"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ob9-ag-h9M"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="archivebox.fill" catalog="system" width="128" height="106"/>
         <image name="exclamationmark" catalog="system" width="46" height="128"/>

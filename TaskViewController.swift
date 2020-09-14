@@ -62,7 +62,6 @@ class TaskViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
     @objc func inversedSorting() {
         isAscending.toggle()
         if isAscending {
@@ -86,20 +85,33 @@ class TaskViewController: UITableViewController {
         }
     }
     
+    
     // send user to EditTaskViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addtask" {
-            let addTaskVC = segue.destination as! EditTaskViewController
-            addTaskVC.user = user
+        if segue.identifier == "editTask" {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let task = tasks[indexPath.row]
+            let editTaskVC = segue.destination as! EditTaskViewController
+            editTaskVC.task = task
+            editTaskVC.title = "Edit Task"
+            editTaskVC.indexPath = indexPath
         }
     }
     
     // get new task from EditTaskViewController
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
-        guard segue.identifier == "saveNewTask" else { return }
+        guard segue.identifier == "saveTask" else { return }
         let sourceVC = segue.source as! EditTaskViewController
-        let task = sourceVC.newTask
-        tasks.append(task)
-        tableView.reloadData()
+        let task = sourceVC.task
+        let indexPath = sourceVC.indexPath
+        
+        if let selectedIndexPath = indexPath {
+            tasks[selectedIndexPath.row] = task
+            tableView.reloadRows(at: [selectedIndexPath], with: .fade)
+        } else {
+            let newIndexPath = IndexPath(row: tasks.count, section: 0)
+            tasks.append(task)
+            tableView.insertRows(at: [newIndexPath], with: .fade  )
+        }
     }
 }
