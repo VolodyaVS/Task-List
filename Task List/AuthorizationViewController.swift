@@ -65,7 +65,6 @@ class AuthorizationViewController: UIViewController {
                                message: "The entered data is incorrect")
             }
         }
-        //        performSegue(withIdentifier: "logIn", sender: nil)
         
     }
     
