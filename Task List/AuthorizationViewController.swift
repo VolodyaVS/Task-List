@@ -36,15 +36,14 @@ class AuthorizationViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "logIn" else { return }
         let navBarVC = segue.destination as! UINavigationController
         let tabBarVC = navBarVC.topViewController as! TabBarViewController
-        //          let tasksVC = tabBarVC.viewControllers?.first as! TaskViewController
         tabBarVC.user = sender as? User
     }
     
     //MARK – IB Actions
     @IBAction func loginButtonAction() {
-        let users = User.getUserData()
         
         guard let userName = userNameTFOutlet.text, !userName.isEmpty else {
             showAlert(title:"Oooooops!😱",
@@ -57,56 +56,25 @@ class AuthorizationViewController: UIViewController {
             return
         }
         
-        for user in users {
-            if user.name == userName && user.password == password  {
-                performSegue(withIdentifier: "logIn", sender: nil)
-            } else { continue }
+        guard let user = User.authorizationCheck(username: userName, password: password) else {
+            showAlert(title: "Oooooops!😱", message: "Your login or password is wrong")
+            passwordTFOutlet.text = ""
+            return
         }
+        performSegue(withIdentifier: "logIn", sender: user)
         
-        showAlert(title: "Oooooops!😱", message: "Your login or password is wrong")
-        passwordTFOutlet.text = ""
     }
     
-    @IBAction func forgotCredentialsAction() {
-        let users = User.getUserData()
-
-        var availableUsers: [String] = []
-        var availablePasswords: [String] = []
-        
-        for user in users {
-            availableUsers.append(user.name)
-            availablePasswords.append(user.password)
-        }
-        
-        let combinedList = Array(zip(availableUsers, availablePasswords))
-        let finalList = combinedList
-        .map{ "\($0), \($1)" }
-        .joined(separator:"; ")
-
-        showAlert(title: "Don't worry!😎",
-                  message: "Available pairs of login & password are: \(finalList)")
-        }
-    
-//    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
-//        guard let registrationVC = segue.source as? RegistrationViewController
-//            else { return }
-//        guard let newUserName = registrationVC.newUserNameRegistration.text,
-//            !newUserName.isEmpty else { return }
-//        guard let newPassword = registrationVC.newPasswordRegistration.text,
-//            !newPassword.isEmpty else { return }
-//        User.addNewUser(name: newUserName, password: newPassword)
-//
-//            showAlert(title: "Password is empty", message: "Please enter password")
-//            return
-//        }
-//        
-//        guard let user = User.authorizationCheck(username: userName, password: password) else {
-//            showAlert(title: "User not found", message: "Please try again or register")
-//            return
-//        }
-//        performSegue(withIdentifier: "logIn", sender: user)
-//
-//    }
+        @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+            guard let registrationVC = segue.source as? RegistrationViewController
+                else { return }
+            guard let newUserName = registrationVC.newUserNameRegistration.text,
+                !newUserName.isEmpty else { return }
+            guard let newPassword = registrationVC.newPasswordRegistration.text,
+                !newPassword.isEmpty else { return }
+            
+            User.addNewUser(name: newUserName, password: newPassword)
+            }
 }
 
 

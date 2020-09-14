@@ -13,17 +13,12 @@ struct User {
     
     static func getUserData() -> [User] {
         
-//        var users: [User] = []
-//        for (key, value) in DataManager.shared.users {
-//            users.append(User(name: key, password: value))
-//        }
-        
         return [User(name: "1", password: "1")]
     }
     
     static func addNewUser(name: String, password: String) {
         
-//        DataManager.shared.users[name] = password
+            DataManager.shared.users[name] = User(name: name, password: password)
         
     }
 }
