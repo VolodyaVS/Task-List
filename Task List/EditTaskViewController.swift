@@ -21,7 +21,6 @@ class EditTaskViewController: UIViewController {
     var newTask = Task(task: "",
                        dueDate: "",
                        done: false,
-                       priority: 1,
                        isFavorite: false,
                        user: nil)
     

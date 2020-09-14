@@ -10,8 +10,15 @@ import UIKit
 
 class TaskViewCell: UITableViewCell {
     
+    var doneColsure : (() -> Void)? = nil
+    
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var dueDataLabel: UILabel!
-    @IBOutlet weak var doneImageView: UIImageView!
+    @IBOutlet weak var doneButton: UIButton!
     
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        if let doneButtonAction = self.doneColsure {
+            doneButtonAction()
+        }
+    }
 }

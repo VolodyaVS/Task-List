@@ -17,10 +17,6 @@ class TaskViewController: UITableViewController {
     // MARK: - Private properties
     private var isAscending = true
     
-    //    private var sortButton = UIBarButtonItem(image: UIImage(systemName: "arrow.down"),
-    //    style: .plain, target: self,
-    //    action: #selector(inversedSorting))
-    
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +36,26 @@ class TaskViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "task", for: indexPath) as! TaskViewCell
         let task = tasks[indexPath.row]
         cell.taskDescriptionLabel.text = task.task
         cell.dueDataLabel.text = task.dueDate
+        
         if task.done {
-            cell.doneImageView.image = UIImage(systemName: "checkmark")
-        } else  { cell.doneImageView.image = UIImage(systemName: "exclamationmark") }
+            cell.doneButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
+        } else  {
+            cell.doneButton.setImage(UIImage(systemName: "exclamationmark"), for: .normal)
+        }
+        
+        var isDone = tasks[indexPath.row].done
+        
+        cell.doneColsure  = {
+            isDone.toggle()
+            self.tasks[indexPath.row].done = isDone
+            tableView.reloadData()
+            print (self.tasks)
+        }
         return cell
     }
     
@@ -67,7 +76,7 @@ class TaskViewController: UITableViewController {
     }
     
     //Sorting task by name 
-    @objc func sorting(){
+    private func sorting(){
         if isAscending {
             tasks = tasks.sorted() { $0.task > $1.task }
             tableView.reloadData()
@@ -76,6 +85,7 @@ class TaskViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
     // send user to EditTaskViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addtask" {
@@ -83,6 +93,7 @@ class TaskViewController: UITableViewController {
             addTaskVC.user = user
         }
     }
+    
     // get new task from EditTaskViewController
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
         guard segue.identifier == "saveNewTask" else { return }

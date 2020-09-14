@@ -27,16 +27,6 @@
             </objects>
             <point key="canvasLocation" x="-96" y="-40"/>
         </scene>
-        <!--TaskView-->
-        <scene sceneID="ukT-Mg-0mO">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TaskView" referencedIdentifier="TaskView" id="5WB-fj-kqA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="aFF-Jl-ZHf"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8FD-OR-5go" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="194" y="445"/>
-        </scene>
         <!--Registration View Controller-->
         <scene sceneID="Syp-WR-gDL">
             <objects>
@@ -210,7 +200,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="5WB-fj-kqA" kind="relationship" relationship="viewControllers" id="dzM-R3-eLM"/>
+                        <segue destination="O7D-ax-6Rv" kind="relationship" relationship="viewControllers" id="gEi-8Z-RTv"/>
                         <segue destination="VLS-Dm-c6M" kind="relationship" relationship="viewControllers" id="cUi-n3-zCN"/>
                     </connections>
                 </tabBarController>
@@ -325,8 +315,92 @@
             </objects>
             <point key="canvasLocation" x="1121" y="760"/>
         </scene>
+        <!--Task View Controller-->
+        <scene sceneID="6AE-OF-6X3">
+            <objects>
+                <tableViewController storyboardIdentifier="TaskView" title="Task View Controller" id="O7D-ax-6Rv" customClass="TaskViewController" customModule="Task_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LAD-yb-X5S">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="sectionIndexColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="sectionIndexBackgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexTrackingBackgroundColor" red="0.6749753866" green="0.83511034780000004" blue="0.85620409249999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="task" id="RBq-yU-dDu" customClass="TaskViewCell" customModule="Task_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RBq-yU-dDu" id="BHO-tZ-qN5">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gnD-LP-qhh">
+                                            <rect key="frame" x="16" y="11.5" width="272" height="20.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="czS-R8-8zl">
+                                                    <rect key="frame" x="0.0" y="0.0" width="122" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="oFu-Vp-113"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="due date " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDf-38-X2t">
+                                                    <rect key="frame" x="142" y="0.0" width="80" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="sB0-rN-RFd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLp-FB-rbG">
+                                                    <rect key="frame" x="242" y="0.0" width="30" height="20.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="i8Q-p8-gMM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                                    <state key="normal" image="exclamationmark" catalog="system">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="doneButtonPressed:" destination="RBq-yU-dDu" eventType="touchUpInside" id="qxx-sc-eEb"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gnD-LP-qhh" firstAttribute="centerY" secondItem="BHO-tZ-qN5" secondAttribute="centerY" id="eCI-w8-GHO"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="gnD-LP-qhh" secondAttribute="trailing" constant="16" id="gtL-gs-diu"/>
+                                        <constraint firstItem="gnD-LP-qhh" firstAttribute="leading" secondItem="BHO-tZ-qN5" secondAttribute="leading" constant="16" id="weN-0w-ixk"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="doneButton" destination="BLp-FB-rbG" id="hFw-77-Hsj"/>
+                                    <outlet property="dueDataLabel" destination="GDf-38-X2t" id="TiO-zi-Gsv"/>
+                                    <outlet property="taskDescriptionLabel" destination="czS-R8-8zl" id="Ybn-hJ-qtc"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="O7D-ax-6Rv" id="IMJ-wL-5AO"/>
+                            <outlet property="delegate" destination="O7D-ax-6Rv" id="hod-X4-gfR"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Task List" image="archivebox.fill" catalog="system" id="1pO-ye-nRh"/>
+                    <navigationItem key="navigationItem" title="Task List View Controller" id="uf0-Km-cDV"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tjc-9V-EjL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="196.875" y="759.50704225352115"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="archivebox.fill" catalog="system" width="128" height="106"/>
+        <image name="exclamationmark" catalog="system" width="46" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
     </resources>

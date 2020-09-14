@@ -24,6 +24,7 @@ class TabBarViewController: UITabBarController {
     private func setupViewControllers(with task: [Task]) {
         
         let tasksListVC = viewControllers?.first as! TaskViewController
+        
         //        let favoriteVC = viewControllers?.last as!
         
         //        tasksListVC.tasks = task

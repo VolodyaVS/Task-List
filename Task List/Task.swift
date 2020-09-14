@@ -14,7 +14,6 @@ struct Task {
     var task: String
     var dueDate: String
     var done: Bool
-    var priority: Int
     var isFavorite: Bool
     var user: User?
 }
@@ -39,8 +38,8 @@ extension Task {
         return tasksList
     }
     
-    static func addTask(user: User, task: String, duedate: String, done: Bool, priority: Int, isFavorite: Bool) {
-        let task = Task(task: task, dueDate: duedate, done: done, priority: priority, isFavorite: isFavorite, user: user)
+    static func addTask(user: User, task: String, duedate: String, done: Bool, isFavorite: Bool) {
+        let task = Task(task: task, dueDate: duedate, done: done, isFavorite: isFavorite, user: user)
         DataManager.shared.tasks.append(task)
     }
     //
