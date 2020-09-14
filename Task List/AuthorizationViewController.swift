@@ -11,8 +11,8 @@ import UIKit
 class AuthorizationViewController: UIViewController {
     
     // MARK: - IB Outlets
-    @IBOutlet weak var userNameTFOutlet: UITextField!
-    @IBOutlet weak var passwordTFOutlet: UITextField!
+    @IBOutlet var userNameTFOutlet: UITextField!
+    @IBOutlet var passwordTFOutlet: UITextField!
     
     // MARK: - Private properties
     private let primaryColor = UIColor(
@@ -31,8 +31,10 @@ class AuthorizationViewController: UIViewController {
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         
+        addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
+        userNameTFOutlet.delegate = self
+        passwordTFOutlet.delegate = self
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -42,7 +44,7 @@ class AuthorizationViewController: UIViewController {
         tabBarVC.user = sender as? User
     }
     
-    //MARK – IB Actions
+    //MARK: – IB Actions
     @IBAction func loginButtonAction() {
         
         guard let userName = userNameTFOutlet.text, !userName.isEmpty else {
@@ -56,27 +58,42 @@ class AuthorizationViewController: UIViewController {
             return
         }
         
-        guard let user = User.authorizationCheck(username: userName, password: password) else {
-            showAlert(title: "Oooooops!😱", message: "Your login or password is wrong")
-            passwordTFOutlet.text = ""
-            return
+        for user in User.getUserData() {
+            if user.name == userName && user.password == password  {
+                performSegue(withIdentifier: "logIn", sender: nil)
+            } else { continue }
         }
-        performSegue(withIdentifier: "logIn", sender: user)
+        performSegue(withIdentifier: "logIn", sender: nil)
         
     }
     
-        @IBAction func unwindSegue(segue: UIStoryboardSegue) {
-            guard let registrationVC = segue.source as? RegistrationViewController
-                else { return }
-            guard let newUserName = registrationVC.newUserNameRegistration.text,
-                !newUserName.isEmpty else { return }
-            guard let newPassword = registrationVC.newPasswordRegistration.text,
-                !newPassword.isEmpty else { return }
-            
-            User.addNewUser(name: newUserName, password: newPassword)
-            }
+    @IBAction func forgotCredentialsAction() {
+        
+        var availableUsers: [String] = []
+        var availablePasswords: [String] = []
+        
+        for user in User.getUserData() {
+            availableUsers.append(user.name)
+            availablePasswords.append(user.password)
+        }
+        
+        let combinedList = Array(zip(availableUsers, availablePasswords))
+        let finalList = combinedList
+            .map{ "\($0), \($1)" }
+            .joined(separator:"; ")
+        
+        showAlert(title: "Don't worry!😎",
+                  message: "Available pairs of login & password are: \(finalList)")
+    }
+    
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        guard let registrationVC = segue.source as? RegistrationViewController
+            else { return }
+        User.addNewUser(name: registrationVC.newUserNameRegistration.text!,
+                        password: registrationVC.newPasswordRegistration.text!)
+    }
+    
 }
-
 
 // MARK: - Alert Controller
 extension AuthorizationViewController {
@@ -92,7 +109,7 @@ extension AuthorizationViewController {
     
 }
 
-// MARK: Text Field Delegate
+// MARK: - Text Field Delegate
 extension AuthorizationViewController: UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -105,7 +122,7 @@ extension AuthorizationViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
             passwordTFOutlet.becomeFirstResponder()
         } else {
-            //logInPressed()
+            loginButtonAction()
         }
         return true
     }

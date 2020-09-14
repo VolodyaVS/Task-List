@@ -41,12 +41,12 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your User Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F28-og-wCw" userLabel="UserNameRegistration">
                                         <rect key="frame" x="0.0" y="0.0" width="270" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="11d-Nz-ZtE" userLabel="PasswordRegistration">
                                         <rect key="frame" x="0.0" y="50" width="270" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -57,7 +57,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Drz-GT-8vw" kind="unwind" identifier="singIn" unwindAction="unwindSegueWithSegue:" id="pJt-1R-opk"/>
+                                    <action selector="registerButtonTapped" destination="Bq2-Co-o12" eventType="touchUpInside" id="PgN-ZI-HDj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lML-bf-8lj" userLabel="RegistrationButton">
@@ -87,6 +87,7 @@
                     <connections>
                         <outlet property="newPasswordRegistration" destination="11d-Nz-ZtE" id="bpq-tj-yve"/>
                         <outlet property="newUserNameRegistration" destination="F28-og-wCw" id="QHc-rv-pgz"/>
+                        <segue destination="Drz-GT-8vw" kind="unwind" identifier="registrationSegue" unwindAction="unwindSegueWithSegue:" id="vfG-Wr-Nxg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6l-Nf-QbB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -159,8 +160,8 @@
                         <viewLayoutGuide key="safeArea" id="ydD-SL-gUV"/>
                     </view>
                     <connections>
-                        <outlet property="passwordTFOutlet" destination="8Kt-UM-2HR" id="85o-1n-6j7"/>
-                        <outlet property="userNameTFOutlet" destination="uIT-wq-OKu" id="JQQ-2Q-CWW"/>
+                        <outlet property="passwordTFOutlet" destination="8Kt-UM-2HR" id="Ch1-sB-dq9"/>
+                        <outlet property="userNameTFOutlet" destination="uIT-wq-OKu" id="aYv-Db-jzE"/>
                         <segue destination="Q3k-Bq-U4L" kind="presentation" identifier="logIn" modalPresentationStyle="fullScreen" id="s76-oi-WCz"/>
                     </connections>
                 </viewController>
@@ -261,7 +262,7 @@
         <!--Favorites View Controller-->
         <scene sceneID="hUB-3F-Qs6">
             <objects>
-                <tableViewController title="Favorites View Controller" id="VLS-Dm-c6M" sceneMemberID="viewController">
+                <tableViewController title="Favorites View Controller" id="VLS-Dm-c6M" customClass="FavoritesTasksTableViewController" customModule="Task_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tb1-dY-HdO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,7 +314,7 @@
                                             <rect key="frame" x="16" y="11.5" width="272" height="20.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="czS-R8-8zl">
-                                                    <rect key="frame" x="0.0" y="0.0" width="122" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="20.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="oFu-Vp-113"/>
                                                     </constraints>
@@ -322,9 +323,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="due date " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDf-38-X2t">
-                                                    <rect key="frame" x="142" y="0.0" width="80" height="20.5"/>
+                                                    <rect key="frame" x="140" y="0.0" width="82" height="20.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="sB0-rN-RFd"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="sB0-rN-RFd"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
