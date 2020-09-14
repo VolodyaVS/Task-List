@@ -59,32 +59,14 @@ class AuthorizationViewController: UIViewController {
         }
         
         for user in User.getUserData() {
-            if user.name == userName && user.password == password  {
+            if user.key == userName && user.value.password == password  {
                 performSegue(withIdentifier: "logIn", sender: nil)
             } else { showAlert(title: "Oooooops!😱",
                                message: "The entered data is incorrect")
+                    passwordTFOutlet.text = ""
             }
         }
         
-    }
-    
-    @IBAction func forgotCredentialsAction() {
-        
-        var availableUsers: [String] = []
-        var availablePasswords: [String] = []
-        
-        for user in User.getUserData() {
-            availableUsers.append(user.name)
-            availablePasswords.append(user.password)
-        }
-        
-        let combinedList = Array(zip(availableUsers, availablePasswords))
-        let finalList = combinedList
-            .map{ "\($0), \($1)" }
-            .joined(separator:"; ")
-        
-        showAlert(title: "Don't worry!😎",
-                  message: "Available pairs of login & password are: \(finalList)")
     }
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
