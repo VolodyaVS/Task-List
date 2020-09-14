@@ -7,35 +7,26 @@
 //
 
 import Foundation
+import UIKit
 
 struct Task {
     
-    let task: String
-    let dueDate: String
+    var task: String
+    var dueDate: String
+    var done: Bool
     var isFavorite: Bool
+    var user: User?
 }
 
 extension Task {
     
-    static func getTaskList() -> [Task] {
-        
-        var tasksList: [Task] = []
-        
-        let tasks = DataManager.shared.tasks
-        let dueDates = DataManager.shared.dueDates
-        
-        for index in 0..<tasks.count {
-            let tasks = Task(task: tasks[index],
-                             dueDate: dueDates[index],
-                             isFavorite: true)
-            tasksList.append(tasks)
-        }
+    static func getTaskList(user: User?) -> [Task] {
+        let tasksList: [Task] = DataManager.shared.tasks
         return tasksList
     }
-    //
-    //    func dataFormatter (dateString: String) -> Date {
-    //        let dateFormatter = DateFormatter()
-    //        dateFormatter.dateFormat = "dd/MM/yyyy"
-    //        return dateFormatter.date(from: dateString) ?? Date()
-    //    }
+    
+    static func addTask(user: User, task: String, duedate: String, done: Bool, isFavorite: Bool) {
+        let task = Task(task: task, dueDate: duedate, done: done, isFavorite: isFavorite, user: user)
+        DataManager.shared.tasks.append(task)
+    }
 }
