@@ -14,10 +14,25 @@ class RegistrationViewController: UIViewController {
     @IBOutlet var newUserNameRegistration: UITextField!
     @IBOutlet var newPasswordRegistration: UITextField!
     
+    // MARK: - Private properties
+    private let primaryColor = UIColor(
+        red: 11/255,
+        green: 128/255,
+        blue: 32/255,
+        alpha: 1
+    )
+    private let secondaryColor = UIColor(
+        red: 132/255,
+        green: 255/255,
+        blue: 138/255,
+        alpha: 1
+    )
+    
     // MARK: - Override methods
     override func viewDidLoad() {
         newUserNameRegistration.delegate = self
         newPasswordRegistration.delegate = self
+        addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
     
     //MARK: – IB Actions
@@ -25,12 +40,12 @@ class RegistrationViewController: UIViewController {
         guard let username = newUserNameRegistration.text, !username.isEmpty
             else { showAlert(title:"Oooooops!😱",
                              message: "Your username field is empty")
-            return
+                return
         }
         guard let password = newPasswordRegistration.text, !password.isEmpty
             else { showAlert(title:"Oooooops!😱",
                              message: "Your passworld field is empty")
-            return
+                return
         }
         performSegue(withIdentifier: "registrationSegue", sender: self)
     }
@@ -75,3 +90,17 @@ extension RegistrationViewController: UITextFieldDelegate {
     
 }
 
+// MARK: - Set background color
+extension RegistrationViewController {
+    
+    func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [topColor.cgColor, bottomColor.cgColor]
+        gradient.locations = [0.0, 1.0]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+        view.layer.insertSublayer(gradient, at: 0)
+    }
+    
+}

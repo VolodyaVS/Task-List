@@ -132,6 +132,7 @@ extension AuthorizationViewController: UITextFieldDelegate {
 
 // MARK: - Set background color
 extension AuthorizationViewController {
+    
     func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
@@ -141,4 +142,5 @@ extension AuthorizationViewController {
         gradient.endPoint = CGPoint(x: 0, y: 1)
         view.layer.insertSublayer(gradient, at: 0)
     }
+    
 }

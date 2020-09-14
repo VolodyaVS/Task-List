@@ -18,9 +18,9 @@ class TaskViewController: UITableViewController {
     private var isAscending = true
     
     private let primaryColor = UIColor(
-        red: 80/255,
-        green: 82/255,
-        blue: 100/255,
+        red: 87/255,
+        green: 160/255,
+        blue: 0/255,
         alpha: 1
     )
     private let secondaryColor = UIColor(
@@ -33,6 +33,8 @@ class TaskViewController: UITableViewController {
     // MARK: - Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
         
         sorting()
         
@@ -133,7 +135,6 @@ class TaskViewController: UITableViewController {
         }
     }
     
-    
     // send user to EditTaskViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editTask" {
@@ -164,3 +165,17 @@ class TaskViewController: UITableViewController {
     }
 }
 
+// MARK: - Set background color
+extension TaskViewController {
+    
+    func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [topColor.cgColor, bottomColor.cgColor]
+        gradient.locations = [0.0, 1.0]
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 0, y: 1)
+        view.layer.insertSublayer(gradient, at: 0)
+    }
+    
+}

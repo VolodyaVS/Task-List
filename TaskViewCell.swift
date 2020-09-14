@@ -10,17 +10,25 @@ import UIKit
 
 class TaskViewCell: UITableViewCell {
     
-    var doneColsure : (() -> Void)? = nil
-    
+    // MARK: - IB Outlets
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var dueDataLabel: UILabel!
     @IBOutlet weak var doneButton: UIButton!
     
+    // MARK: - Properties
+    var doneColsure : (() -> Void)? = nil
+    
+
+    // MARK: - IB Actions
     @IBAction func doneButtonPressed(_ sender: Any) {
         if let doneButtonAction = self.doneColsure {
             doneButtonAction()
         }
     }
+    
+}
+
+extension TaskViewCell {
     
     func addGradient(topColor: UIColor, bottomColor: UIColor) {
         let gradient = CAGradientLayer()
@@ -31,6 +39,5 @@ class TaskViewCell: UITableViewCell {
         gradient.endPoint = CGPoint(x: 0, y: 1)
         contentView.layer.insertSublayer(gradient, at: 0)
     }
+    
 }
-
-

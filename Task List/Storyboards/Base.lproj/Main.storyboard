@@ -54,7 +54,7 @@
                                 <rect key="frame" x="126" y="314" width="68" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Sing Up">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="registerButtonTapped" destination="Bq2-Co-o12" eventType="touchUpInside" id="PgN-ZI-HDj"/>
@@ -64,7 +64,7 @@
                                 <rect key="frame" x="130.5" y="359" width="59" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonPressed" destination="Bq2-Co-o12" eventType="touchUpInside" id="B03-Gx-uLA"/>
@@ -72,7 +72,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.042034150494978106" green="0.5" blue="0.12692000090284616" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="3dh-rW-SNU" firstAttribute="trailing" secondItem="kPs-3U-Bd7" secondAttribute="trailing" constant="25" id="Bpk-AQ-us9"/>
                             <constraint firstItem="0Dm-Bh-2Oy" firstAttribute="top" secondItem="kPs-3U-Bd7" secondAttribute="bottom" constant="30" id="Hmi-u7-7zg"/>
@@ -206,7 +206,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-Qx-sVj">
                                 <rect key="frame" x="20" y="64" width="280" height="311"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name task" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Dqi-UN-x9R">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name task" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Dqi-UN-x9R">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -231,7 +231,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.33994996609558847" green="0.61674233769036668" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.66594139604653291" green="1" blue="0.77020981818734846" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="xDj-Qx-sVj" firstAttribute="leading" secondItem="2xM-Mj-aYo" secondAttribute="leading" constant="20" id="26c-Ks-Vpm"/>
                             <constraint firstItem="xDj-Qx-sVj" firstAttribute="top" secondItem="2xM-Mj-aYo" secondAttribute="top" constant="20" id="IXD-H7-Fxh"/>
@@ -347,6 +347,7 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
+                                    <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="gnD-LP-qhh" firstAttribute="centerY" secondItem="BHO-tZ-qN5" secondAttribute="centerY" id="eCI-w8-GHO"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="gnD-LP-qhh" secondAttribute="trailing" constant="16" id="gtL-gs-diu"/>

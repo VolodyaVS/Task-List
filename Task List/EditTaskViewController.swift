@@ -27,15 +27,15 @@ class EditTaskViewController: UIViewController {
     
     // MARK: - Private properties
     private let primaryColor = UIColor(
-        red: 230/255,
-        green: 250/255,
-        blue: 250/255,
+        red: 0/255,
+        green: 139/255,
+        blue: 255/255,
         alpha: 1
     )
     private let secondaryColor = UIColor(
-        red: 87/255,
-        green: 152/255,
-        blue: 255/255,
+        red: 135/255,
+        green: 191/255,
+        blue: 251/255,
         alpha: 1
     )
     

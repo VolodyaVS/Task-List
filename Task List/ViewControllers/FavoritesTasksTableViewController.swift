@@ -9,6 +9,7 @@
 import UIKit
 
 class FavoritesTasksTableViewController: UITableViewController {
+    
     // MARK: - Public Properties
     var tasks = Task.getTaskList(user: nil)
     
