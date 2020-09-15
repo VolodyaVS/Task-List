@@ -28,11 +28,10 @@ class TabBarViewController: UITabBarController {
         let favoriteListVC = viewControllers?.last as! FavoritesTasksTableViewController
         tasksListVC.user = user
         tasksListVC.tasks = tasks
-        tasksListVC.title = "Task \(user.name)"
         
         favoriteListVC.user = user
         favoriteListVC.tasks = tasks
-        favoriteListVC.title = "Favorite Task \(user.name)"
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
