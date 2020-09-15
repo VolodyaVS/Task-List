@@ -10,11 +10,11 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     // MARK: - Public Properties
-
+    
     var user: User!
     
     // MARK: - Override methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let tasks = Task.getTaskList(user: user)
@@ -22,7 +22,7 @@ class TabBarViewController: UITabBarController {
     }
     
     // MARK: - Private methods
-
+    
     private func setupViewControllers(tasks: [Task]) {
         let tasksListVC = viewControllers?.first as! TaskViewController
         let favoriteListVC = viewControllers?.last as! FavoritesTasksTableViewController
@@ -34,7 +34,7 @@ class TabBarViewController: UITabBarController {
         favoriteListVC.tasks = tasks
         favoriteListVC.title = "Favorite Task \(user.name)"
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addTask" {
             let addTaskVC = segue.destination as! EditTaskViewController

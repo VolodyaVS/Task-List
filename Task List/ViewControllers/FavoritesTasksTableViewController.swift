@@ -10,20 +10,20 @@ import UIKit
 
 class FavoritesTasksTableViewController: UITableViewController {
     // MARK: - Public Properties
-
+    
     var tasks: [Task]!
     var user: User!
-
+    
     // MARK: - Override methods
-
+    
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.navigationItem.leftBarButtonItem = nil
         tableView.reloadData()
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var counter = 0
-
+        
         for task in tasks {
             if task.isFavorite {
                 counter += 1
@@ -31,29 +31,29 @@ class FavoritesTasksTableViewController: UITableViewController {
         }
         return counter
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoritesTasks", for: indexPath)
-
+        
         if tasks[indexPath.row].isFavorite {
             cell.textLabel?.text = tasks[indexPath.row].task
         }
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
+    
     // MARK: - Swipe Actions
-
+    
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let favourite = favouriteAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [favourite])
     }
-
+    
     func favouriteAction(at indexPath: IndexPath) -> UIContextualAction {
         var task = tasks[indexPath.row]
         let action = UIContextualAction(style: .normal, title: "Favourite") {

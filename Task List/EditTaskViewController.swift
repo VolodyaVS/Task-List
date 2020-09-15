@@ -10,14 +10,14 @@ import UIKit
 
 class EditTaskViewController: UIViewController {
     // MARK: - IB Outlets
-
+    
     @IBOutlet var taskTFOutlet: UITextField!
     @IBOutlet var isFavoriteSwitchOutlet: UISwitch!
     @IBOutlet var datePickerTaskOutlet: UIDatePicker!
     @IBOutlet var saveButtonOutlet: UIBarButtonItem!
     
     // MARK: - Public properties
-
+    
     var user: User!
     var task = Task(task: "",
                     dueDate: "22/11/2020",
@@ -27,7 +27,7 @@ class EditTaskViewController: UIViewController {
     var indexPath: IndexPath!
     
     // MARK: - Private properties
-
+    
     private let primaryColor = UIColor(
         red: 0/255,
         green: 139/255,
@@ -42,7 +42,7 @@ class EditTaskViewController: UIViewController {
     )
     
     // MARK: - Override methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,7 +61,7 @@ class EditTaskViewController: UIViewController {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd/MM/yyyy"
         let newTaskDate = dateFormater.string(from: datePickerTaskOutlet.date)
-       
+        
         if segue.identifier == "saveTask" {
             task.task = taskTFOutlet.text ?? "default"
             task.dueDate = newTaskDate

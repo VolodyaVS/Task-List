@@ -23,7 +23,7 @@ struct User {
 extension User {
     static func authorizationCheck(username: String, password: String) -> User? {
         let users = DataManager.shared.users
-     
+        
         if let user = users[username] {
             if user.password == password {
                 return user

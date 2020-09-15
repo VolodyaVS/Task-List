@@ -10,16 +10,16 @@ import UIKit
 
 class TaskViewController: UITableViewController {
     // MARK: - Public Properties
-
+    
     var tasks: [Task]!
     var user: User!
     
     // MARK: - Private properties
-
+    
     private var isAscending = true
     
     // MARK: - Override methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,7 +37,7 @@ class TaskViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
@@ -68,7 +68,7 @@ class TaskViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-  
+    
     @objc func inversedSorting() {
         isAscending.toggle()
         if isAscending {
@@ -120,20 +120,20 @@ class TaskViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .fade)
         }
     }
-
+    
     // MARK: - Swipe Actions
-
+    
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
-
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let favourite = favouriteAction(at: indexPath)
         return UISwipeActionsConfiguration(actions: [favourite])

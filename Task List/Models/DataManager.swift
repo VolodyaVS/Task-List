@@ -10,12 +10,12 @@ import Foundation
 
 class DataManager {
     static let shared = DataManager()
-
+    
     private init() {}
-
+    
     // add User
     var users: [String: User] = ["1": User(name: "1", password: "1")]
-
+    
     var tasks: [Task] = [
         Task(task: "Create task VC", dueDate: "02/10/2020",
              done: true, isFavorite: true, user: nil),

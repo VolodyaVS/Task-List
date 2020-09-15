@@ -10,12 +10,12 @@ import UIKit
 
 class RegistrationViewController: UIViewController {
     // MARK: - IB Outlets
-
+    
     @IBOutlet var newUserNameRegistration: UITextField!
     @IBOutlet var newPasswordRegistration: UITextField!
     
     // MARK: - Private properties
-
+    
     private let primaryColor = UIColor(
         red: 11/255,
         green: 128/255,
@@ -30,7 +30,7 @@ class RegistrationViewController: UIViewController {
     )
     
     // MARK: - Override methods
-
+    
     override func viewDidLoad() {
         newUserNameRegistration.delegate = self
         newPasswordRegistration.delegate = self
@@ -38,17 +38,17 @@ class RegistrationViewController: UIViewController {
     }
     
     // MARK: – IB Actions
-
+    
     @IBAction func registerButtonTapped() {
         guard let username = newUserNameRegistration.text, !username.isEmpty
-        else { showAlert(title: "Oooooops!😱",
-                         message: "Your username field is empty")
-            return
+            else { showAlert(title: "Oooooops!😱",
+                             message: "Your username field is empty")
+                return
         }
         guard let password = newPasswordRegistration.text, !password.isEmpty
-        else { showAlert(title: "Oooooops!😱",
-                         message: "Your passworld field is empty")
-            return
+            else { showAlert(title: "Oooooops!😱",
+                             message: "Your passworld field is empty")
+                return
         }
         newPasswordRegistration.text = password
         newUserNameRegistration.text = username

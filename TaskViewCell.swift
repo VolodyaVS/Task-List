@@ -18,7 +18,7 @@ class TaskViewCell: UITableViewCell {
     // MARK: - Properties
     var doneColsure : (() -> Void)? = nil
     
-
+    
     // MARK: - IB Actions
     @IBAction func doneButtonPressed(_ sender: Any) {
         if let doneButtonAction = self.doneColsure {

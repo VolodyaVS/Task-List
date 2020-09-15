@@ -10,12 +10,12 @@ import UIKit
 
 class AuthorizationViewController: UIViewController {
     // MARK: - IB Outlets
-
+    
     @IBOutlet var userNameTFOutlet: UITextField!
     @IBOutlet var passwordTFOutlet: UITextField!
     
     // MARK: - Private properties
-
+    
     private let primaryColor = UIColor(
         red: 80/255,
         green: 82/255,
@@ -30,7 +30,7 @@ class AuthorizationViewController: UIViewController {
     )
     
     // MARK: - Override methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,7 +47,7 @@ class AuthorizationViewController: UIViewController {
     }
     
     // MARK: – IB Actions
-
+    
     @IBAction func loginButtonAction() {
         guard let userName = userNameTFOutlet.text, !userName.isEmpty else {
             showAlert(title: "Oooooops!😱",
@@ -74,7 +74,7 @@ class AuthorizationViewController: UIViewController {
         }
         
         guard let registrationVC = segue.source as? RegistrationViewController
-        else { return }
+            else { return }
         
         User.addNewUser(name: registrationVC.newUserNameRegistration.text!,
                         password: registrationVC.newPasswordRegistration.text!)

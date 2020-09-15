@@ -10,18 +10,18 @@ import UIKit
 
 class LaunchScreenManager {
     // MARK: - Properties
-
+    
     static let instance = LaunchScreenManager(animationDurationBase: 1.3)
     
     var mainView: UIView?
     var parentView: UIView?
     
     let animationDurationBase: Double
-
+    
     let logoVigetViewTag = 102
     
     // MARK: - Lifecycle
-
+    
     init(animationDurationBase: Double) {
         self.animationDurationBase = animationDurationBase
     }
@@ -32,7 +32,7 @@ class LaunchScreenManager {
     }
     
     // MARK: - Animate
-
+    
     func animateAfterLaunch(_ parentViewPassedIn: UIView) {
         parentView = parentViewPassedIn
         mainView = loadView()
@@ -63,7 +63,7 @@ class LaunchScreenManager {
             options: .curveEaseOut,
             animations: {
                 logoViget.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-            },
+        },
             completion: { _ in
                 UIView.animate(
                     withDuration: self.animationDurationBase / 6,
@@ -72,9 +72,9 @@ class LaunchScreenManager {
                     animations: {
                         logoViget.alpha = 0
                         logoViget.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-                    }
+                }
                 )
-            }
+        }
         )
     }
     
@@ -109,7 +109,7 @@ class LaunchScreenManager {
                     transform = transform.rotated(by: -1.95)
                     
                     ringSegment.transform = transform
-                }
+            }
             )
             
             // When segments are very curved, sometimes pieces of them reappear on-screen
