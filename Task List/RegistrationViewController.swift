@@ -40,13 +40,16 @@ class RegistrationViewController: UIViewController {
         guard let username = newUserNameRegistration.text, !username.isEmpty
             else { showAlert(title:"Oooooops!😱",
                              message: "Your username field is empty")
-                return
+            return
         }
         guard let password = newPasswordRegistration.text, !password.isEmpty
             else { showAlert(title:"Oooooops!😱",
                              message: "Your passworld field is empty")
-                return
+            return
         }
+        newPasswordRegistration.text = password
+        newUserNameRegistration.text = username
+        
         performSegue(withIdentifier: "registrationSegue", sender: self)
     }
     

@@ -58,20 +58,22 @@ class AuthorizationViewController: UIViewController {
             return
         }
         
-        for user in User.getUserData() {
-            if user.key == userName && user.value.password == password  {
-                performSegue(withIdentifier: "logIn", sender: nil)
-            } else { showAlert(title: "Oooooops!😱",
-                               message: "The entered data is incorrect")
-                    passwordTFOutlet.text = ""
-            }
+        guard let user = User.authorizationCheck(username: userName, password: password) else {
+            showAlert(title:"Oooooops!😱",
+                     message: "Incorrect login and pass")
+            return
         }
-        
+        performSegue(withIdentifier: "logIn", sender: user)
     }
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        guard segue.identifier == "registrationSegue" else {
+            print("haha")
+            return }
+        
         guard let registrationVC = segue.source as? RegistrationViewController
             else { return }
+        
         User.addNewUser(name: registrationVC.newUserNameRegistration.text!,
                         password: registrationVC.newPasswordRegistration.text!)
         

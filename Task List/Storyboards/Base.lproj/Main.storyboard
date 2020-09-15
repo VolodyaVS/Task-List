@@ -58,7 +58,7 @@
                                 </state>
                                 <connections>
                                     <action selector="registerButtonTapped" destination="Bq2-Co-o12" eventType="touchUpInside" id="PgN-ZI-HDj"/>
-                                    <segue destination="Drz-GT-8vw" kind="unwind" unwindAction="unwindSegueWithSegue:" id="5NZ-4Y-bAg"/>
+                                    <segue destination="Drz-GT-8vw" kind="unwind" identifier="registrationSegue" unwindAction="unwindSegueWithSegue:" id="rjM-oM-GJ2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lML-bf-8lj" userLabel="RegistrationButton">
@@ -69,7 +69,6 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonPressed" destination="Bq2-Co-o12" eventType="touchUpInside" id="B03-Gx-uLA"/>
-                                    <segue destination="Drz-GT-8vw" kind="unwind" unwindAction="unwindSegueWithSegue:" id="ScY-9Q-2nJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -88,7 +87,6 @@
                     <connections>
                         <outlet property="newPasswordRegistration" destination="11d-Nz-ZtE" id="bpq-tj-yve"/>
                         <outlet property="newUserNameRegistration" destination="F28-og-wCw" id="QHc-rv-pgz"/>
-                        <segue destination="Drz-GT-8vw" kind="unwind" identifier="registrationSegue" unwindAction="unwindSegueWithSegue:" id="vfG-Wr-Nxg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6l-Nf-QbB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
