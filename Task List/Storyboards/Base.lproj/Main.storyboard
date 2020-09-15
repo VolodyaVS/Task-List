@@ -58,6 +58,7 @@
                                 </state>
                                 <connections>
                                     <action selector="registerButtonTapped" destination="Bq2-Co-o12" eventType="touchUpInside" id="PgN-ZI-HDj"/>
+                                    <segue destination="Drz-GT-8vw" kind="unwind" unwindAction="unwindSegueWithSegue:" id="5NZ-4Y-bAg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lML-bf-8lj" userLabel="RegistrationButton">
