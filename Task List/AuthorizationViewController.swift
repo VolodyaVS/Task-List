@@ -74,6 +74,9 @@ class AuthorizationViewController: UIViewController {
             else { return }
         User.addNewUser(name: registrationVC.newUserNameRegistration.text!,
                         password: registrationVC.newPasswordRegistration.text!)
+        
+        userNameTFOutlet.text = registrationVC.newUserNameRegistration.text
+        passwordTFOutlet.text = registrationVC.newPasswordRegistration.text
     }
     
 }
