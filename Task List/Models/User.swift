@@ -7,25 +7,21 @@
 //
 
 struct User {
-    
     var name: String
     var password: String
     
-    static func getUserData() -> Dictionary<String, User> {
-        
+    static func getUserData() -> [String: User] {
         return DataManager.shared.users
     }
     
     static func addNewUser(name: String, password: String) {
-            DataManager.shared.users[name] = User(name: name, password: password)
+        DataManager.shared.users[name] = User(name: name, password: password)
     }
 }
 
 // init function
 extension User {
-    
     static func authorizationCheck(username: String, password: String) -> User? {
-        
         let users = DataManager.shared.users
      
         if let user = users[username] {

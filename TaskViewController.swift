@@ -9,15 +9,17 @@
 import UIKit
 
 class TaskViewController: UITableViewController {
-    
     // MARK: - Public Properties
-    var tasks = Task.getTaskList(user: nil)
+
+    var tasks: [Task]!
     var user: User!
     
     // MARK: - Private properties
+
     private var isAscending = true
     
     // MARK: - Override methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,16 +33,16 @@ class TaskViewController: UITableViewController {
         let sortButton = UIBarButtonItem(image: UIImage(systemName: "arrow.down"),
                                          style: .plain, target: self,
                                          action: #selector(inversedSorting))
-        self.tabBarController?.navigationItem.leftBarButtonItems = [sortButton]
+        tabBarController?.navigationItem.leftBarButtonItems = [sortButton]
     }
     
     // MARK: - Table view data source
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      
         let cell = tableView.dequeueReusableCell(withIdentifier: "task", for: indexPath) as! TaskViewCell
         let task = tasks[indexPath.row]
         cell.taskDescriptionLabel.text = task.task
@@ -49,13 +51,13 @@ class TaskViewController: UITableViewController {
         
         if task.done {
             cell.doneButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
-        } else  {
+        } else {
             cell.doneButton.setImage(UIImage(systemName: "exclamationmark"), for: .normal)
         }
         
         var isDone = tasks[indexPath.row].done
         
-        cell.doneColsure  = {
+        cell.doneColsure = {
             isDone.toggle()
             self.tasks[indexPath.row].done = isDone
             tableView.reloadData()
@@ -66,49 +68,26 @@ class TaskViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
-    // MARK: - Swipe Actions
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let favorite = favoriteAction(at: indexPath)
-
-        return UISwipeActionsConfiguration(actions: [favorite])
-    }
-    
-    func favoriteAction(at indexPath: IndexPath) -> UIContextualAction {
-        let actionTitle: String = tasks[indexPath.row].isFavorite ? "Unfavorite" : "Favorite"
-        
-        let action = UIContextualAction(style: .destructive, title: actionTitle) { (action, view, complition) in
-            var task = self.tasks[indexPath.row]
-    
-            task.isFavorite.toggle()
-            self.tasks[indexPath.row] = task
-            
-            complition(true)
-        }
-        action.backgroundColor = UIColor(red: 17/255, green: 154/255, blue: 237/255, alpha: 1)
-
-        return action
-    }
   
     @objc func inversedSorting() {
         isAscending.toggle()
         if isAscending {
-            self.tabBarController?.navigationItem.leftBarButtonItem?.image
+            tabBarController?.navigationItem.leftBarButtonItem?.image
                 = UIImage(systemName: "arrow.down")
         } else {
-            self.tabBarController?.navigationItem.leftBarButtonItem?.image
+            tabBarController?.navigationItem.leftBarButtonItem?.image
                 = UIImage(systemName: "arrow.up")
         }
         sorting()
     }
     
-    //Sorting task by name 
-    private func sorting(){
+    // Sorting task by name
+    private func sorting() {
         if isAscending {
-            tasks = tasks.sorted() { $0.task < $1.task }
+            tasks = tasks.sorted { $0.task < $1.task }
             tableView.reloadData()
         } else {
-            tasks = tasks.sorted() { $0.task > $1.task }
+            tasks = tasks.sorted { $0.task > $1.task }
             tableView.reloadData()
         }
     }
@@ -138,7 +117,38 @@ class TaskViewController: UITableViewController {
         } else {
             let newIndexPath = IndexPath(row: tasks.count, section: 0)
             tasks.append(task)
-            tableView.insertRows(at: [newIndexPath], with: .fade  )
+            tableView.insertRows(at: [newIndexPath], with: .fade)
         }
+    }
+
+    // MARK: - Swipe Actions
+
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favourite = favouriteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [favourite])
+    }
+    
+    func favouriteAction(at indexPath: IndexPath) -> UIContextualAction {
+        var task = tasks[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "Favourite") {
+            _, _, completion in
+            task.isFavorite = !task.isFavorite
+            self.tasks[indexPath.row] = task
+            completion(true)
+        }
+        action.backgroundColor = task.isFavorite ? .systemPurple : .systemGray
+        action.image = UIImage(systemName: "heart")
+        return action
     }
 }

@@ -9,8 +9,8 @@
 import UIKit
 
 class LaunchScreenManager {
-    
     // MARK: - Properties
+
     static let instance = LaunchScreenManager(animationDurationBase: 1.3)
     
     var mainView: UIView?
@@ -21,15 +21,18 @@ class LaunchScreenManager {
     let logoVigetViewTag = 102
     
     // MARK: - Lifecycle
+
     init(animationDurationBase: Double) {
         self.animationDurationBase = animationDurationBase
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Animate
+
     func animateAfterLaunch(_ parentViewPassedIn: UIView) {
         parentView = parentViewPassedIn
         mainView = loadView()
@@ -52,7 +55,6 @@ class LaunchScreenManager {
     }
     
     func hideLogo() {
-        
         let logoViget = mainView!.viewWithTag(logoVigetViewTag)!
         
         UIView.animate(
@@ -61,7 +63,7 @@ class LaunchScreenManager {
             options: .curveEaseOut,
             animations: {
                 logoViget.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        },
+            },
             completion: { _ in
                 UIView.animate(
                     withDuration: self.animationDurationBase / 6,
@@ -70,16 +72,16 @@ class LaunchScreenManager {
                     animations: {
                         logoViget.alpha = 0
                         logoViget.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-                }
+                    }
                 )
-        }
+            }
         )
     }
     
     func hideRingSegments() {
         let distanceToMove = parentView!.frame.size.height * 1.75
         
-        for number in 1...12 {
+        for number in 1 ... 12 {
             let ringSegment = mainView!.viewWithTag(number)!
             
             // Get the degrees we want to move to
@@ -107,7 +109,7 @@ class LaunchScreenManager {
                     transform = transform.rotated(by: -1.95)
                     
                     ringSegment.transform = transform
-            }
+                }
             )
             
             // When segments are very curved, sometimes pieces of them reappear on-screen
@@ -118,5 +120,4 @@ class LaunchScreenManager {
             }
         }
     }
-    
 }

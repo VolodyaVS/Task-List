@@ -9,12 +9,13 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
-    
     // MARK: - IB Outlets
+
     @IBOutlet var newUserNameRegistration: UITextField!
     @IBOutlet var newPasswordRegistration: UITextField!
     
     // MARK: - Private properties
+
     private let primaryColor = UIColor(
         red: 11/255,
         green: 128/255,
@@ -29,22 +30,24 @@ class RegistrationViewController: UIViewController {
     )
     
     // MARK: - Override methods
+
     override func viewDidLoad() {
         newUserNameRegistration.delegate = self
         newPasswordRegistration.delegate = self
         addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
     }
     
-    //MARK: – IB Actions
+    // MARK: – IB Actions
+
     @IBAction func registerButtonTapped() {
         guard let username = newUserNameRegistration.text, !username.isEmpty
-            else { showAlert(title:"Oooooops!😱",
-                             message: "Your username field is empty")
+        else { showAlert(title: "Oooooops!😱",
+                         message: "Your username field is empty")
             return
         }
         guard let password = newPasswordRegistration.text, !password.isEmpty
-            else { showAlert(title:"Oooooops!😱",
-                             message: "Your passworld field is empty")
+        else { showAlert(title: "Oooooops!😱",
+                         message: "Your passworld field is empty")
             return
         }
         newPasswordRegistration.text = password
@@ -59,8 +62,8 @@ class RegistrationViewController: UIViewController {
 }
 
 // MARK: - Alert Controller
+
 extension RegistrationViewController {
-    
     private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
@@ -70,12 +73,11 @@ extension RegistrationViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
 }
 
 // MARK: - Text Field Delegate
+
 extension RegistrationViewController: UITextFieldDelegate {
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
@@ -90,12 +92,11 @@ extension RegistrationViewController: UITextFieldDelegate {
         }
         return true
     }
-    
 }
 
 // MARK: - Set background color
+
 extension RegistrationViewController {
-    
     func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
@@ -105,5 +106,4 @@ extension RegistrationViewController {
         gradient.endPoint = CGPoint(x: 0, y: 1)
         view.layer.insertSublayer(gradient, at: 0)
     }
-    
 }

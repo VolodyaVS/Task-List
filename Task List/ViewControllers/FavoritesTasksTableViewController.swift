@@ -9,18 +9,21 @@
 import UIKit
 
 class FavoritesTasksTableViewController: UITableViewController {
-    
     // MARK: - Public Properties
-    var tasks = Task.getTaskList(user: nil)
-    
+
+    var tasks: [Task]!
+    var user: User!
+
     // MARK: - Override methods
+
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.navigationItem.leftBarButtonItem = nil
+        tabBarController?.navigationItem.leftBarButtonItem = nil
+        tableView.reloadData()
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var counter = 0
-        
+
         for task in tasks {
             if task.isFavorite {
                 counter += 1
@@ -28,45 +31,39 @@ class FavoritesTasksTableViewController: UITableViewController {
         }
         return counter
     }
-    
+
     // MARK: - Table view data source
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoritesTasks", for: indexPath)
-        
+
         if tasks[indexPath.row].isFavorite {
             cell.textLabel?.text = tasks[indexPath.row].task
         }
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    // MARK: - Swipe Actions
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = deleteAction(at: indexPath)
 
-        return UISwipeActionsConfiguration(actions: [delete])
+    // MARK: - Swipe Actions
+
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favourite = favouriteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [favourite])
     }
 
-    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
-        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, complition) in
-            var index = indexPath.row
-
-            for favorite in 0...indexPath.row {
-                if !self.tasks[favorite].isFavorite {
-                    index += 1
-                }
-            }
-            self.tasks[index].isFavorite.toggle()
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            complition(true)
+    func favouriteAction(at indexPath: IndexPath) -> UIContextualAction {
+        var task = tasks[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "Favourite") {
+            _, _, completion in
+            task.isFavorite = !task.isFavorite
+            self.tasks[indexPath.row] = task
+            completion(true)
         }
-        action.backgroundColor = .red
-
+        action.backgroundColor = task.isFavorite ? .systemPurple : .systemGray
+        action.image = UIImage(systemName: "heart")
         return action
     }
-    
 }

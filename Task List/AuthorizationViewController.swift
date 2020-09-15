@@ -9,12 +9,13 @@
 import UIKit
 
 class AuthorizationViewController: UIViewController {
-    
     // MARK: - IB Outlets
+
     @IBOutlet var userNameTFOutlet: UITextField!
     @IBOutlet var passwordTFOutlet: UITextField!
     
     // MARK: - Private properties
+
     private let primaryColor = UIColor(
         red: 80/255,
         green: 82/255,
@@ -29,6 +30,7 @@ class AuthorizationViewController: UIViewController {
     )
     
     // MARK: - Override methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,23 +46,23 @@ class AuthorizationViewController: UIViewController {
         tabBarVC.user = sender as? User
     }
     
-    //MARK: – IB Actions
+    // MARK: – IB Actions
+
     @IBAction func loginButtonAction() {
-        
         guard let userName = userNameTFOutlet.text, !userName.isEmpty else {
-            showAlert(title:"Oooooops!😱",
+            showAlert(title: "Oooooops!😱",
                       message: "Your username field is empty")
             return
         }
         guard let password = passwordTFOutlet.text, !password.isEmpty else {
-            showAlert(title:"Oooooops!😱",
+            showAlert(title: "Oooooops!😱",
                       message: "Your passworld field is empty")
             return
         }
         
         guard let user = User.authorizationCheck(username: userName, password: password) else {
-            showAlert(title:"Oooooops!😱",
-                     message: "Incorrect login and pass")
+            showAlert(title: "Oooooops!😱",
+                      message: "Incorrect login and pass")
             return
         }
         performSegue(withIdentifier: "logIn", sender: user)
@@ -68,11 +70,11 @@ class AuthorizationViewController: UIViewController {
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         guard segue.identifier == "registrationSegue" else {
-            print("haha")
-            return }
+            return
+        }
         
         guard let registrationVC = segue.source as? RegistrationViewController
-            else { return }
+        else { return }
         
         User.addNewUser(name: registrationVC.newUserNameRegistration.text!,
                         password: registrationVC.newPasswordRegistration.text!)
@@ -80,12 +82,11 @@ class AuthorizationViewController: UIViewController {
         userNameTFOutlet.text = registrationVC.newUserNameRegistration.text
         passwordTFOutlet.text = registrationVC.newPasswordRegistration.text
     }
-    
 }
 
 // MARK: - Alert Controller
+
 extension AuthorizationViewController {
-    
     private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
@@ -94,12 +95,11 @@ extension AuthorizationViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
 }
 
 // MARK: - Text Field Delegate
+
 extension AuthorizationViewController: UITextFieldDelegate {
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
@@ -114,12 +114,11 @@ extension AuthorizationViewController: UITextFieldDelegate {
         }
         return true
     }
-    
 }
 
 // MARK: - Set background color
+
 extension AuthorizationViewController {
-    
     func addVerticalGradientLayer(topColor: UIColor, bottomColor: UIColor) {
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
@@ -129,5 +128,4 @@ extension AuthorizationViewController {
         gradient.endPoint = CGPoint(x: 0, y: 1)
         view.layer.insertSublayer(gradient, at: 0)
     }
-    
 }
